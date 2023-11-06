@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/mini_logo.png" type="image/x-icon" />
+    <title>Scada Banana Factory</title>
+
+    <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG ////////////// -->
+    <script src = "socket.io/socket.io.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/table_1.css">
+
+    
+
+</head>
+<body>
+    <%- include('header.ejs'); -%>
+    <div class="table_1_page">
+        <video autoplay muted loop id="background-video">
+            <source src="/images/video_background_light.mp4" type="video/mp4">
+          </video>
+        <table>
+            <tr>
+                <td rowspan="3">Cell 1</td>
+                <td colspan="5" style="text-align: center;">BẢNG THEO DÕI KẾ HOẠCH SẢN XUẤT XƯỞNG SẢN XUẤT CHUỐI BP1</td>
+            </tr>
+            <tr>
+                <td colspan="2">CHUỐI THU HOẠCH</td>
+                <td colspan="3">THÙNG / NGÀY</td>
+            </tr>
+            <tr>
+                <td>BUỒNG / NGÀY</td>
+                <td>TẤN / NGÀY</td>
+                <td>9KG</td>
+                <td>13KG</td>
+                <td>18KG</td>
+            </tr>
+            <tr>
+                <td>KẾ HOẠCH</td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+            </tr>
+            <tr>
+                <td>THỰC TẾ</td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+            </tr>
+            <tr>
+                <td>CHÊNH LỆCH</td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+            </tr>
+            <tr>
+                <td>HIỆU SUẤT</td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input type="number" value="0" style="width: 95%;"></td>
+            </tr>
+        </table>
+    </div> 
+</body>
+</html>
