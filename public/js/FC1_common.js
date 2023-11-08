@@ -17,13 +17,4 @@ function fn_IOFieldDataShow(tag, IOField, tofix) {
     });
   }
 
-function fn_tinhtong(tag,TTFied,rof){
-    socket.on(tag,function(data){
-        if (rof == 0) {
-            document.getElementById(TTFied).value = data;
-          } else {
-            document.getElementById(TTFied).value = data.toFixed(rof);
-          }
 
-    })
-}

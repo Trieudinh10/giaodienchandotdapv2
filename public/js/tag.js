@@ -3,6 +3,7 @@ module.exports = {
       return tags_list;
     }
 };
+
 // Bảng tag trong Visual studio code
 var tags_list = { 
     ////////////CHUYEN 1////////////
@@ -129,7 +130,7 @@ var tags_list = {
 
     chuyen_6_cl_9kg: 'DB1,INT174',
     chuyen_6_cl_13kg: 'DB1,INT176',
-    chuyen_6_cl_18kg: 'DB1,INT178'
-    
+    chuyen_6_cl_18kg: 'DB1,INT178',
     
 };
+

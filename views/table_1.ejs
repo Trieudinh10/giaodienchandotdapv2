@@ -10,6 +10,7 @@
     <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG ////////////// -->
     <script src = "socket.io/socket.io.js"></script>
     <script src="/js/FC1_common.js"></script>
+    <script src="/js/table1_caculate.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/css/table_1.css">
@@ -55,44 +56,6 @@
                 <td class="data_cell"></td>
                 <td class="data_cell"></td>
             </tr>
-            <script>
-                    // var socket = io(); 
-                    // var a9kg, chuyen_1_a456_13kg, chuyen_1_a456_18kg; // Biến toàn cục để lưu giá trị nhận được
-
-                    socket.on('chuyen_1_a456_9kg', function(value) {
-                        chuyen_1_a456_9kg = value;
-                        calculate(); // Gọi hàm tính toán sau khi nhận được giá trị
-                    });
-
-                    socket.on('chuyen_1_a456_13kg', function(value) {
-                        chuyen_1_a456_13kg = value;
-                        calculate(); // Gọi hàm tính toán sau khi nhận được giá trị
-                    });
-
-                    socket.on('chuyen_1_a456_18kg', function(value) {
-                        chuyen_1_a456_18kg = value;
-                        calculate(); // Gọi hàm tính toán sau khi nhận được giá trị
-                    });
-
-                    function calculate() {
-                        if (typeof chuyen_1_a456_9kg !== 'undefined' && typeof chuyen_1_a456_13kg !== 'undefined' && typeof chuyen_1_a456_18kg !== 'undefined') {
-                            var Buong_ngaytt = 1000;
-                            var Tan_ngaytt = chuyen_1_a456_9kg + chuyen_1_a456_13kg + chuyen_1_a456_18kg;
-                            var Thung_9kgtt = 50;
-                            var Thung_13kgtt = 50;
-                            var Thung_18kgtt = 50;
-                            
-                            var dataCells = $('.data_cell');
-                            
-                            $(dataCells[0]).text(Buong_ngaytt);
-                            $(dataCells[1]).text(Tan_ngaytt);
-                            $(dataCells[2]).text(Thung_9kgtt);
-                            $(dataCells[3]).text(Thung_13kgtt);
-                            $(dataCells[4]).text(Thung_18kgtt);
-                        }
-                    };
-            </script>
-
             <tr>
                 <td>CHÊNH LỆCH</td>
                 <td><input type="number" value="0" style="width: 95%;"></td>
