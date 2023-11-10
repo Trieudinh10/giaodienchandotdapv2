@@ -1,0 +1,100 @@
+module.exports = {
+    tags_listt: function() {
+        var vc1a4569 = obj_tag["a456_9"];
+        var vc1a45613 = obj_tag["a456_13"];
+        var vc1a45618 = obj_tag["a456_18"];
+        var vc1a7899 = obj_tag["a789_9"];
+        var vc1a78913 = obj_tag["a789_13"];
+        var vc1a78918 = obj_tag["a789_18"];
+        var vc1b4569 = obj_tag["b456_9"];
+        var vc1b45613 = obj_tag["b456_13"];
+        var vc1b45618 = obj_tag["b456_18"];
+        var vc1b7899 = obj_tag["b789_9"];
+        var vc1b78913 = obj_tag["b789_13"];
+        var vc1b78918 = obj_tag["b789_18"];
+        var vc1cl9 = obj_tag["cl_9"];
+        var vc1cl13 = obj_tag["cl_13"];
+        var vc1cl18 = obj_tag["cl_18"];
+    
+        var vc2a4569 = obj_tag["a456_9"];
+        var vc2a45613 = obj_tag["a456_13"];
+        var vc2a45618 = obj_tag["a456_18"];
+        var vc2a7899 = obj_tag["a789_9"];
+        var vc2a78913 = obj_tag["a789_13"];
+        var vc2a78918 = obj_tag["a789_18"];
+        var vc2b4569 = obj_tag["b456_9"];
+        var vc2b45613 = obj_tag["b456_13"];
+        var vc2b45618 = obj_tag["b456_18"];
+        var vc2b7899 = obj_tag["b789_9"];
+        var vc2b78913 = obj_tag["b789_13"];
+        var vc2b78918 = obj_tag["b789_18"];
+        var vc2cl9 = obj_tag["cl_9"];
+        var vc2cl13 = obj_tag["cl_13"];
+        var vc2cl18 = obj_tag["cl_18"];
+    
+        var vc3a4569 = obj_tag["a456_9"];
+        var vc3a45613 = obj_tag["a456_13"];
+        var vc3a45618 = obj_tag["a456_18"];
+        var vc3a7899 = obj_tag["a789_9"];
+        var vc3a78913 = obj_tag["a789_13"];
+        var vc3a78918 = obj_tag["a789_18"];
+        var vc3b4569 = obj_tag["b456_9"];
+        var vc3b45613 = obj_tag["b456_13"];
+        var vc3b45618 = obj_tag["b456_18"];
+        var vc3b7899 = obj_tag["b789_9"];
+        var vc3b78913 = obj_tag["b789_13"];
+        var vc3b78918 = obj_tag["b789_18"];
+        var vc3cl9 = obj_tag["cl_9"];
+        var vc3cl13 = obj_tag["cl_13"];
+        var vc3cl18 = obj_tag["cl_18"];
+    
+        var vc4a4569 = obj_tag["a456_9"];
+        var vc4a45613 = obj_tag["a456_13"];
+        var vc4a45618 = obj_tag["a456_18"];
+        var vc4a7899 = obj_tag["a789_9"];
+        var vc4a78913 = obj_tag["a789_13"];
+        var vc4a78918 = obj_tag["a789_18"];
+        var vc4b4569 = obj_tag["b456_9"];
+        var vc4b45613 = obj_tag["b456_13"];
+        var vc4b45618 = obj_tag["b456_18"];
+        var vc4b7899 = obj_tag["b789_9"];
+        var vc4b78913 = obj_tag["b789_13"];
+        var vc4b78918 = obj_tag["b789_18"];
+        var vc4cl9 = obj_tag["cl_9"];
+        var vc4cl13 = obj_tag["cl_13"];
+        var vc4cl18 = obj_tag["cl_18"];
+    
+        var vc5a4569 = obj_tag["a456_9"];
+        var vc5a45613 = obj_tag["a456_13"];
+        var vc5a45618 = obj_tag["a456_18"];
+        var vc5a7899 = obj_tag["a789_9"];
+        var vc5a78913 = obj_tag["a789_13"];
+        var vc5a78918 = obj_tag["a789_18"];
+        var vc5b4569 = obj_tag["b456_9"];
+        var vc5b45613 = obj_tag["b456_13"];
+        var vc5b45618 = obj_tag["b456_18"];
+        var vc5b7899 = obj_tag["b789_9"];
+        var vc5b78913 = obj_tag["b789_13"];
+        var vc5b78918 = obj_tag["b789_18"];
+        var vc5cl9 = obj_tag["cl_9"];
+        var vc5cl13 = obj_tag["cl_13"];
+        var vc5cl18 = obj_tag["cl_18"];
+    
+        var vc6a4569 = obj_tag["a456_9"];
+        var vc6a45613 = obj_tag["a456_13"];
+        var vc6a45618 = obj_tag["a456_18"];
+        var vc6a7899 = obj_tag["a789_9"];
+        var vc6a78913 = obj_tag["a789_13"];
+        var vc6a78918 = obj_tag["a789_18"];
+        var vc6b4569 = obj_tag["b456_9"];
+        var vc6b45613 = obj_tag["b456_13"];
+        var vc6b45618 = obj_tag["b456_18"];
+        var vc6b7899 = obj_tag["b789_9"];
+        var vc6b78913 = obj_tag["b789_13"];
+        var vc6b78918 = obj_tag["b789_18"];
+        var vc6cl9 = obj_tag["cl_9"];
+        var vc6cl13 = obj_tag["cl_13"];
+        var vc6cl18 = obj_tag["cl_18"];
+    
+    }
+};

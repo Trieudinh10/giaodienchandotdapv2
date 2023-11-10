@@ -61,20 +61,19 @@ function PLC_connected(err) {
 }
 
 // Đọc dữ liệu từ PLC và đưa vào array tags
-var arr_tag_value = []; // Tạo một mảng lưu giá trị tag đọc về
-var obj_tag_value = []; // Tạo một mảng lưu giá trị tag đọc về
+var arr_tag = []; // Tạo một mảng lưu giá trị tag đọc về
+var obj_tag = []; // Tạo một mảng lưu giá trị tag đọc về
 function valuesReady(anythingBad, values) {
     if (anythingBad) { console.log("Lỗi khi đọc dữ liệu tag"); } // Cảnh báo lỗi
     var lodash = require('lodash'); // Chuyển variable sang array
-    arr_tag_value = lodash.map(values, (item) => item);
-    console.log("Data S1", arr_tag_value); // Hiển thị giá trị để kiểm tra
-    obj_tag_value = values;
+    arr_tag = lodash.map(values, (item) => item);
+    console.log("Data S1", arr_tag); // Hiển thị giá trị để kiểm tra
+    obj_tag = values;
 }
 
 // Hàm chức năng scan giá trị
 function fn_read_data_scan() {
     conn_plc.readAllItems(valuesReady);
-    fn_tag();
 
 }
 
@@ -84,148 +83,192 @@ setInterval(
     1000 // 1s = 1000ms
 );
 
+// ///////////LẬP BẢNG TAG ĐỂ GỬI QUA CLIENT (TRÌNH DUYỆT)///////////
+var obj_tag = [];
+
+// ///////////GỬI DỮ LIỆU BẢNG TAG ĐẾN CLIENT (TRÌNH DUYỆT)///////////
+const { fn_tag } = require('./public/js/fn_tag.js');
+io.on("connection", function (socket) {
+    socket.on("Client-send-data", function (data) {
+        fn_tag(io, obj_tag);
+    });
+
+});
+
 
 // ///////////LẬP BẢNG TAG ĐỂ GỬI QUA CLIENT (TRÌNH DUYỆT)///////////
-function fn_tag() {
-    ///////////////CHUYỀN 1///////////////
-    io.sockets.emit("chuyen_1_a456_9kg", obj_tag_value["chuyen_1_a456_9kg"]);
-    io.sockets.emit("chuyen_1_a456_13kg", obj_tag_value["chuyen_1_a456_13kg"]);
-    io.sockets.emit("chuyen_1_a456_18kg", obj_tag_value["chuyen_1_a456_18kg"]);
-    io.sockets.emit("chuyen_1_a789_9kg", obj_tag_value["chuyen_1_a789_9kg"]);
-    io.sockets.emit("chuyen_1_a789_13kg", obj_tag_value["chuyen_1_a789_13kg"]);
-    io.sockets.emit("chuyen_1_a789_18kg", obj_tag_value["chuyen_1_a789_18kg"]);
-    io.sockets.emit("chuyen_1_b456_9kg", obj_tag_value["chuyen_1_b456_9kg"]);
-    io.sockets.emit("chuyen_1_b456_13kg", obj_tag_value["chuyen_1_b456_13kg"]);
-    io.sockets.emit("chuyen_1_b456_18kg", obj_tag_value["chuyen_1_b456_18kg"]);
-    io.sockets.emit("chuyen_1_b789_9kg", obj_tag_value["chuyen_1_b789_9kg"]);
-    io.sockets.emit("chuyen_1_b789_13kg", obj_tag_value["chuyen_1_b789_13kg"]);
-    io.sockets.emit("chuyen_1_b789_18kg", obj_tag_value["chuyen_1_b789_18kg"]);
-    io.sockets.emit("chuyen_1_cl_9kg", obj_tag_value["chuyen_1_cl_9kg"]);
-    io.sockets.emit("chuyen_1_cl_13kg", obj_tag_value["chuyen_1_cl_13kg"]);
-    io.sockets.emit("chuyen_1_cl_18kg", obj_tag_value["chuyen_1_cl_18kg"]);
-    ///////////////CHUYỀN 2/////////////// 
-    io.sockets.emit("chuyen_2_a456_9kg", obj_tag_value["chuyen_2_a456_9kg"]);
-    io.sockets.emit("chuyen_2_a456_13kg", obj_tag_value["chuyen_2_a456_13kg"]);
-    io.sockets.emit("chuyen_2_a456_18kg", obj_tag_value["chuyen_2_a456_18kg"]);
-    io.sockets.emit("chuyen_2_a789_9kg", obj_tag_value["chuyen_2_a789_9kg"]);
-    io.sockets.emit("chuyen_2_a789_13kg", obj_tag_value["chuyen_2_a789_13kg"]);
-    io.sockets.emit("chuyen_2_a789_18kg", obj_tag_value["chuyen_2_a789_18kg"]);
-    io.sockets.emit("chuyen_2_b456_9kg", obj_tag_value["chuyen_2_b456_9kg"]);
-    io.sockets.emit("chuyen_2_b456_13kg", obj_tag_value["chuyen_2_b456_13kg"]);
-    io.sockets.emit("chuyen_2_b456_18kg", obj_tag_value["chuyen_2_b456_18kg"]);
-    io.sockets.emit("chuyen_2_b789_9kg", obj_tag_value["chuyen_2_b789_9kg"]);
-    io.sockets.emit("chuyen_2_b789_13kg", obj_tag_value["chuyen_2_b789_13kg"]);
-    io.sockets.emit("chuyen_2_b789_18kg", obj_tag_value["chuyen_2_b789_18kg"]);
-    io.sockets.emit("chuyen_2_cl_9kg", obj_tag_value["chuyen_2_cl_9kg"]);
-    io.sockets.emit("chuyen_2_cl_13kg", obj_tag_value["chuyen_2_cl_13kg"]);
-    io.sockets.emit("chuyen_2_cl_18kg", obj_tag_value["chuyen_2_cl_18kg"]);
-    ///////////////CHUYỀN 3/////////////// 
-    io.sockets.emit("chuyen_3_a456_9kg", obj_tag_value["chuyen_3_a456_9kg"]);
-    io.sockets.emit("chuyen_3_a456_13kg", obj_tag_value["chuyen_3_a456_13kg"]);
-    io.sockets.emit("chuyen_3_a456_18kg", obj_tag_value["chuyen_3_a456_18kg"]);
-    io.sockets.emit("chuyen_3_a789_9kg", obj_tag_value["chuyen_3_a789_9kg"]);
-    io.sockets.emit("chuyen_3_a789_13kg", obj_tag_value["chuyen_3_a789_13kg"]);
-    io.sockets.emit("chuyen_3_a789_18kg", obj_tag_value["chuyen_3_a789_18kg"]);
-    io.sockets.emit("chuyen_3_b456_9kg", obj_tag_value["chuyen_3_b456_9kg"]);
-    io.sockets.emit("chuyen_3_b456_13kg", obj_tag_value["chuyen_3_b456_13kg"]);
-    io.sockets.emit("chuyen_3_b456_18kg", obj_tag_value["chuyen_3_b456_18kg"]);
-    io.sockets.emit("chuyen_3_b789_9kg", obj_tag_value["chuyen_3_b789_9kg"]);
-    io.sockets.emit("chuyen_3_b789_13kg", obj_tag_value["chuyen_3_b789_13kg"]);
-    io.sockets.emit("chuyen_3_b789_18kg", obj_tag_value["chuyen_3_b789_18kg"]);
-    io.sockets.emit("chuyen_3_cl_9kg", obj_tag_value["chuyen_3_cl_9kg"]);
-    io.sockets.emit("chuyen_3_cl_13kg", obj_tag_value["chuyen_3_cl_13kg"]);
-    io.sockets.emit("chuyen_3_cl_18kg", obj_tag_value["chuyen_3_cl_18kg"]);
-    ///////////////CHUYỀN 2/////////////// 
-    io.sockets.emit("chuyen_4_a456_9kg", obj_tag_value["chuyen_4_a456_9kg"]);
-    io.sockets.emit("chuyen_4_a456_13kg", obj_tag_value["chuyen_4_a456_13kg"]);
-    io.sockets.emit("chuyen_4_a456_18kg", obj_tag_value["chuyen_4_a456_18kg"]);
-    io.sockets.emit("chuyen_4_a789_9kg", obj_tag_value["chuyen_4_a789_9kg"]);
-    io.sockets.emit("chuyen_4_a789_13kg", obj_tag_value["chuyen_4_a789_13kg"]);
-    io.sockets.emit("chuyen_4_a789_18kg", obj_tag_value["chuyen_4_a789_18kg"]);
-    io.sockets.emit("chuyen_4_b456_9kg", obj_tag_value["chuyen_4_b456_9kg"]);
-    io.sockets.emit("chuyen_4_b456_13kg", obj_tag_value["chuyen_4_b456_13kg"]);
-    io.sockets.emit("chuyen_4_b456_18kg", obj_tag_value["chuyen_4_b456_18kg"]);
-    io.sockets.emit("chuyen_4_b789_9kg", obj_tag_value["chuyen_4_b789_9kg"]);
-    io.sockets.emit("chuyen_4_b789_13kg", obj_tag_value["chuyen_4_b789_13kg"]);
-    io.sockets.emit("chuyen_4_b789_18kg", obj_tag_value["chuyen_4_b789_18kg"]);
-    io.sockets.emit("chuyen_4_cl_9kg", obj_tag_value["chuyen_4_cl_9kg"]);
-    io.sockets.emit("chuyen_4_cl_13kg", obj_tag_value["chuyen_4_cl_13kg"]);
-    io.sockets.emit("chuyen_4_cl_18kg", obj_tag_value["chuyen_4_cl_18kg"]);
-    ///////////////CHUYỀN 2/////////////// 
-    io.sockets.emit("chuyen_5_a456_9kg", obj_tag_value["chuyen_5_a456_9kg"]);
-    io.sockets.emit("chuyen_5_a456_13kg", obj_tag_value["chuyen_5_a456_13kg"]);
-    io.sockets.emit("chuyen_5_a456_18kg", obj_tag_value["chuyen_5_a456_18kg"]);
-    io.sockets.emit("chuyen_5_a789_9kg", obj_tag_value["chuyen_5_a789_9kg"]);
-    io.sockets.emit("chuyen_5_a789_13kg", obj_tag_value["chuyen_5_a789_13kg"]);
-    io.sockets.emit("chuyen_5_a789_18kg", obj_tag_value["chuyen_5_a789_18kg"]);
-    io.sockets.emit("chuyen_5_b456_9kg", obj_tag_value["chuyen_5_b456_9kg"]);
-    io.sockets.emit("chuyen_5_b456_13kg", obj_tag_value["chuyen_5_b456_13kg"]);
-    io.sockets.emit("chuyen_5_b456_18kg", obj_tag_value["chuyen_5_b456_18kg"]);
-    io.sockets.emit("chuyen_5_b789_9kg", obj_tag_value["chuyen_5_b789_9kg"]);
-    io.sockets.emit("chuyen_5_b789_13kg", obj_tag_value["chuyen_5_b789_13kg"]);
-    io.sockets.emit("chuyen_5_b789_18kg", obj_tag_value["chuyen_5_b789_18kg"]);
-    io.sockets.emit("chuyen_5_cl_9kg", obj_tag_value["chuyen_5_cl_9kg"]);
-    io.sockets.emit("chuyen_5_cl_13kg", obj_tag_value["chuyen_5_cl_13kg"]);
-    io.sockets.emit("chuyen_5_cl_18kg", obj_tag_value["chuyen_5_cl_18kg"]);
-    ///////////////CHUYỀN 2/////////////// 
-    io.sockets.emit("chuyen_6_a456_9kg", obj_tag_value["chuyen_6_a456_9kg"]);
-    io.sockets.emit("chuyen_6_a456_13kg", obj_tag_value["chuyen_6_a456_13kg"]);
-    io.sockets.emit("chuyen_6_a456_18kg", obj_tag_value["chuyen_6_a456_18kg"]);
-    io.sockets.emit("chuyen_6_a789_9kg", obj_tag_value["chuyen_6_a789_9kg"]);
-    io.sockets.emit("chuyen_6_a789_13kg", obj_tag_value["chuyen_6_a789_13kg"]);
-    io.sockets.emit("chuyen_6_a789_18kg", obj_tag_value["chuyen_6_a789_18kg"]);
-    io.sockets.emit("chuyen_6_b456_9kg", obj_tag_value["chuyen_6_b456_9kg"]);
-    io.sockets.emit("chuyen_6_b456_13kg", obj_tag_value["chuyen_6_b456_13kg"]);
-    io.sockets.emit("chuyen_6_b456_18kg", obj_tag_value["chuyen_6_b456_18kg"]);
-    io.sockets.emit("chuyen_6_b789_9kg", obj_tag_value["chuyen_6_b789_9kg"]);
-    io.sockets.emit("chuyen_6_b789_13kg", obj_tag_value["chuyen_6_b789_13kg"]);
-    io.sockets.emit("chuyen_6_b789_18kg", obj_tag_value["chuyen_6_b789_18kg"]);
-    io.sockets.emit("chuyen_6_cl_9kg", obj_tag_value["chuyen_6_cl_9kg"]);
-    io.sockets.emit("chuyen_6_cl_13kg", obj_tag_value["chuyen_6_cl_13kg"]);
-    io.sockets.emit("chuyen_6_cl_18kg", obj_tag_value["chuyen_6_cl_18kg"]);
+// function fn_tag() {
+//     ///////////////CHUYỀN 1///////////////
+//     io.sockets.emit("c1a456_9", obj_tag["c1a456_9"]);
+//     io.sockets.emit("c1a456_13", obj_tag["c1a456_13"]);
+//     io.sockets.emit("c1a456_18", obj_tag["c1a456_18"]);
+//     io.sockets.emit("c1a789_9", obj_tag["c1a789_9"]);
+//     io.sockets.emit("c1a789_13", obj_tag["c1a789_13"]);
+//     io.sockets.emit("c1a789_18", obj_tag["c1a789_18"]);
+//     io.sockets.emit("c1b456_9", obj_tag["c1b456_9"]);
+//     io.sockets.emit("c1b456_13", obj_tag["c1b456_13"]);
+//     io.sockets.emit("c1b456_18", obj_tag["c1b456_18"]);
+//     io.sockets.emit("c1b789_9", obj_tag["c1b789_9"]);
+//     io.sockets.emit("c1b789_13", obj_tag["c1b789_13"]);
+//     io.sockets.emit("c1b789_18", obj_tag["c1b789_18"]);
+//     io.sockets.emit("c1cl_9", obj_tag["c1cl_9"]);
+//     io.sockets.emit("c1cl_13", obj_tag["c1cl_13"]);
+//     io.sockets.emit("c1cl_18", obj_tag["c1cl_18"]);
+//     ///////////////CHUYỀN 2/////////////// 
+//     io.sockets.emit("c2a456_9", obj_tag["c2a456_9"]);
+//     io.sockets.emit("c2a456_13", obj_tag["c2a456_13"]);
+//     io.sockets.emit("c2a456_18", obj_tag["c2a456_18"]);
+//     io.sockets.emit("c2a789_9", obj_tag["c2a789_9"]);
+//     io.sockets.emit("c2a789_13", obj_tag["c2a789_13"]);
+//     io.sockets.emit("c2a789_18", obj_tag["c2a789_18"]);
+//     io.sockets.emit("c2b456_9", obj_tag["c2b456_9"]);
+//     io.sockets.emit("c2b456_13", obj_tag["c2b456_13"]);
+//     io.sockets.emit("c2b456_18", obj_tag["c2b456_18"]);
+//     io.sockets.emit("c2b789_9", obj_tag["c2b789_9"]);
+//     io.sockets.emit("c2b789_13", obj_tag["c2b789_13"]);
+//     io.sockets.emit("c2b789_18", obj_tag["c2b789_18"]);
+//     io.sockets.emit("c2cl_9", obj_tag["c2cl_9"]);
+//     io.sockets.emit("c2cl_13", obj_tag["c2cl_13"]);
+//     io.sockets.emit("c2cl_18", obj_tag["c2cl_18"]);
+//     ///////////////CHUYỀN 3/////////////// 
+//     io.sockets.emit("c3a456_9", obj_tag["c3a456_9"]);
+//     io.sockets.emit("c3a456_13", obj_tag["c3a456_13"]);
+//     io.sockets.emit("c3a456_18", obj_tag["c3a456_18"]);
+//     io.sockets.emit("c3a789_9", obj_tag["c3a789_9"]);
+//     io.sockets.emit("c3a789_13", obj_tag["c3a789_13"]);
+//     io.sockets.emit("c3a789_18", obj_tag["c3a789_18"]);
+//     io.sockets.emit("c3b456_9", obj_tag["c3b456_9"]);
+//     io.sockets.emit("c3b456_13", obj_tag["c3b456_13"]);
+//     io.sockets.emit("c3b456_18", obj_tag["c3b456_18"]);
+//     io.sockets.emit("c3b789_9", obj_tag["c3b789_9"]);
+//     io.sockets.emit("c3b789_13", obj_tag["c3b789_13"]);
+//     io.sockets.emit("c3b789_18", obj_tag["c3b789_18"]);
+//     io.sockets.emit("c3cl_9", obj_tag["c3cl_9"]);
+//     io.sockets.emit("c3cl_13", obj_tag["c3cl_13"]);
+//     io.sockets.emit("c3cl_18", obj_tag["c3cl_18"]);
+//     ///////////////CHUYỀN 2/////////////// 
+//     io.sockets.emit("c4a456_9", obj_tag["c4a456_9"]);
+//     io.sockets.emit("c4a456_13", obj_tag["c4a456_13"]);
+//     io.sockets.emit("c4a456_18", obj_tag["c4a456_18"]);
+//     io.sockets.emit("c4a789_9", obj_tag["c4a789_9"]);
+//     io.sockets.emit("c4a789_13", obj_tag["c4a789_13"]);
+//     io.sockets.emit("c4a789_18", obj_tag["c4a789_18"]);
+//     io.sockets.emit("c4b456_9", obj_tag["c4b456_9"]);
+//     io.sockets.emit("c4b456_13", obj_tag["c4b456_13"]);
+//     io.sockets.emit("c4b456_18", obj_tag["c4b456_18"]);
+//     io.sockets.emit("c4b789_9", obj_tag["c4b789_9"]);
+//     io.sockets.emit("c4b789_13", obj_tag["c4b789_13"]);
+//     io.sockets.emit("c4b789_18", obj_tag["c4b789_18"]);
+//     io.sockets.emit("c4cl_9", obj_tag["c4cl_9"]);
+//     io.sockets.emit("c4cl_13", obj_tag["c4cl_13"]);
+//     io.sockets.emit("c4cl_18", obj_tag["c4cl_18"]);
+//     ///////////////CHUYỀN 2/////////////// 
+//     io.sockets.emit("c5a456_9", obj_tag["c5a456_9"]);
+//     io.sockets.emit("c5a456_13", obj_tag["c5a456_13"]);
+//     io.sockets.emit("c5a456_18", obj_tag["c5a456_18"]);
+//     io.sockets.emit("c5a789_9", obj_tag["c5a789_9"]);
+//     io.sockets.emit("c5a789_13", obj_tag["c5a789_13"]);
+//     io.sockets.emit("c5a789_18", obj_tag["c5a789_18"]);
+//     io.sockets.emit("c5b456_9", obj_tag["c5b456_9"]);
+//     io.sockets.emit("c5b456_13", obj_tag["c5b456_13"]);
+//     io.sockets.emit("c5b456_18", obj_tag["c5b456_18"]);
+//     io.sockets.emit("c5b789_9", obj_tag["c5b789_9"]);
+//     io.sockets.emit("c5b789_13", obj_tag["c5b789_13"]);
+//     io.sockets.emit("c5b789_18", obj_tag["c5b789_18"]);
+//     io.sockets.emit("c5cl_9", obj_tag["c5cl_9"]);
+//     io.sockets.emit("c5cl_13", obj_tag["c5cl_13"]);
+//     io.sockets.emit("c5cl_18", obj_tag["c5cl_18"]);
+//     ///////////////CHUYỀN 2/////////////// 
+//     io.sockets.emit("c6a456_9", obj_tag["c6a456_9"]);
+//     io.sockets.emit("c6a456_13", obj_tag["c6a456_13"]);
+//     io.sockets.emit("c6a456_18", obj_tag["c6a456_18"]);
+//     io.sockets.emit("c6a789_9", obj_tag["c6a789_9"]);
+//     io.sockets.emit("c6a789_13", obj_tag["c6a789_13"]);
+//     io.sockets.emit("c6a789_18", obj_tag["c6a789_18"]);
+//     io.sockets.emit("c6b456_9", obj_tag["c6b456_9"]);
+//     io.sockets.emit("c6b456_13", obj_tag["c6b456_13"]);
+//     io.sockets.emit("c6b456_18", obj_tag["c6b456_18"]);
+//     io.sockets.emit("c6b789_9", obj_tag["c6b789_9"]);
+//     io.sockets.emit("c6b789_13", obj_tag["c6b789_13"]);
+//     io.sockets.emit("c6b789_18", obj_tag["c6b789_18"]);
+//     io.sockets.emit("c6cl_9", obj_tag["c6cl_9"]);
+//     io.sockets.emit("c6cl_13", obj_tag["c6cl_13"]);
+//     io.sockets.emit("c6cl_18", obj_tag["c6cl_18"]);
     
-}
+// }
+
+var Buong_ngaykh;
+var Tan_ngaykh;
+var Thung_9kh;
+var Thung_13kh;
+var Thung_18kh;
 
 function tinhtoan() {
-    // Assuming obj_tag_value is declared somewhere and contains the necessary values...
 
-    var data1 = obj_tag_value["chuyen_1_a456_9kg"];
-    var data2 = obj_tag_value["chuyen_1_a789_9kg"];
-    var data3 = obj_tag_value["chuyen_1_b456_9kg"];
-    var data4 = obj_tag_value["chuyen_1_b789_9kg"];
-    var data5 = obj_tag_value["chuyen_1_cl_9kg"];
 
-    var Buong_ngaytt = data1 + data2;
-    var Tan_ngaytt = (data1 + data2 + data3 + data4 + data5) * 9;
-    var Thung_9kgtt = data1 + data2 + data3 + data4 + data5;
-    var Thung_13kgtt = data1 + data2 + data3 + data4 + data5;
-    var Thung_18kgtt = data1 + data2 + data3 + data4 + data5;
+    
+    var Buong_ngaytt = 9999999;
+    var Tan_ngaytt = (obj_tag['c1a456_9'] + obj_tag['c1a789_9'] + obj_tag['c1b456_9'] + obj_tag['c1b789_9'] + obj_tag['c1cl_9']) * 9 +
+                     (obj_tag['c1a456_13'] + obj_tag['c1a789_13'] + obj_tag['c1b456_13'] + obj_tag['c1b789_13'] + obj_tag['c1cl_13']) * 13 +
+                     (obj_tag['c1a456_18'] + obj_tag['c1a789_18'] + obj_tag['c1b456_18'] + obj_tag['c1b789_18'] + obj_tag['c1cl_18']) * 18 +
+    
+                     (obj_tag['c2a456_9'] + obj_tag['c2a789_9'] + obj_tag['c2b456_9'] + obj_tag['c2b789_9'] + obj_tag['c2cl_9']) * 9 +
+                     (obj_tag['c2a456_13'] + obj_tag['c2a789_13'] + obj_tag['c2b456_13'] + obj_tag['c2b789_13'] + obj_tag['c2cl_13']) * 13 +
+                     (obj_tag['c2a456_18'] + obj_tag['c2a789_18'] + obj_tag['c2b456_18'] + obj_tag['c2b789_18'] + obj_tag['c2cl_18']) * 18 +
+    
+                     (obj_tag['c3a456_9'] + obj_tag['c3a789_9'] + obj_tag['c3b456_9'] + obj_tag['c3b789_9'] + obj_tag['c3cl_9']) * 9 +
+                     (obj_tag['c3a456_13'] + obj_tag['c3a789_13'] + obj_tag['c3b456_13'] + obj_tag['c3b789_13'] + obj_tag['c3cl_13']) * 13 +
+                     (obj_tag['c3a456_18'] + obj_tag['c3a789_18'] + obj_tag['c3b456_18'] + obj_tag['c3b789_18'] + obj_tag['c3cl_18']) * 18 +
+    
+                     (obj_tag['c4a456_9'] + obj_tag['c4a789_9'] + obj_tag['c4b456_9'] + obj_tag['c4b789_9'] + obj_tag['c4cl_9']) * 9 +
+                     (obj_tag['c4a456_13'] + obj_tag['c4a789_13'] + obj_tag['c4b456_13'] + obj_tag['c4b789_13'] + obj_tag['c4cl_13']) * 13 +
+                     (obj_tag['c4a456_18'] + obj_tag['c4a789_18'] + obj_tag['c4b456_18'] + obj_tag['c4b789_18'] + obj_tag['c4cl_18']) * 18 +
+    
+                     (obj_tag['c5a456_9'] + obj_tag['c5a789_9'] + obj_tag['c5b456_9'] + obj_tag['c5b789_9'] + obj_tag['c5cl_9']) * 9 +
+                     (obj_tag['c5a456_13'] + obj_tag['c5a789_13'] + obj_tag['c5b456_13'] + obj_tag['c5b789_13'] + obj_tag['c5cl_13']) * 13 +
+                     (obj_tag['c5a456_18'] + obj_tag['c5a789_18'] + obj_tag['c5b456_18'] + obj_tag['c5b789_18'] + obj_tag['c5cl_18']) * 18 +
+    
+                     (obj_tag['c6a456_9'] + obj_tag['c6a789_9'] + obj_tag['c6b456_9'] + obj_tag['c6b789_9'] + obj_tag['c6cl_9']) * 9 +
+                     (obj_tag['c6a456_13'] + obj_tag['c6a789_13'] + obj_tag['c6b456_13'] + obj_tag['c6b789_13'] + obj_tag['c6cl_13']) * 13 +
+                     (obj_tag['c6a456_18'] + obj_tag['c6a789_18'] + obj_tag['c6b456_18'] + obj_tag['c6b789_18'] + obj_tag['c6cl_18']) * 18 ;
+    var Thung_9tt = (obj_tag['c1a456_9'] + obj_tag['c1a789_9'] + obj_tag['c1b456_9'] + obj_tag['c1b789_9'] + obj_tag['c1cl_9']) +
+                      (obj_tag['c2a456_9'] + obj_tag['c2a789_9'] + obj_tag['c2b456_9'] + obj_tag['c2b789_9'] + obj_tag['c2cl_9']) +
+                      (obj_tag['c3a456_9'] + obj_tag['c3a789_9'] + obj_tag['c3b456_9'] + obj_tag['c3b789_9'] + obj_tag['c3cl_9']) +
+                      (obj_tag['c4a456_9'] + obj_tag['c4a789_9'] + obj_tag['c4b456_9'] + obj_tag['c4b789_9'] + obj_tag['c4cl_9']) +
+                      (obj_tag['c5a456_9'] + obj_tag['c5a789_9'] + obj_tag['c5b456_9'] + obj_tag['c5b789_9'] + obj_tag['c5cl_9']) +
+                      (obj_tag['c6a456_9'] + obj_tag['c6a789_9'] + obj_tag['c6b456_9'] + obj_tag['c6b789_9'] + obj_tag['c6cl_9']) ;
+    var Thung_13tt = (obj_tag['c1a456_13'] + obj_tag['c1a789_13'] + obj_tag['c1b456_13'] + obj_tag['c1b789_13'] + obj_tag['c1cl_13']) +
+                       (obj_tag['c2a456_13'] + obj_tag['c2a789_13'] + obj_tag['c2b456_13'] + obj_tag['c2b789_13'] + obj_tag['c2cl_13']) +
+                       (obj_tag['c3a456_13'] + obj_tag['c3a789_13'] + obj_tag['c3b456_13'] + obj_tag['c3b789_13'] + obj_tag['c3cl_13']) +
+                       (obj_tag['c4a456_13'] + obj_tag['c4a789_13'] + obj_tag['c4b456_13'] + obj_tag['c4b789_13'] + obj_tag['c4cl_13']) +
+                       (obj_tag['c5a456_13'] + obj_tag['c5a789_13'] + obj_tag['c5b456_13'] + obj_tag['c5b789_13'] + obj_tag['c5cl_13']) +
+                       (obj_tag['c6a456_13'] + obj_tag['c6a789_13'] + obj_tag['c6b456_13'] + obj_tag['c6b789_13'] + obj_tag['c6cl_13']) ;
+    var Thung_18tt = (obj_tag['c1a456_18'] + obj_tag['c1a789_18'] + obj_tag['c1b456_18'] + obj_tag['c1b789_18'] + obj_tag['c1cl_18']) +
+                       (obj_tag['c2a456_18'] + obj_tag['c2a789_18'] + obj_tag['c2b456_18'] + obj_tag['c2b789_18'] + obj_tag['c2cl_18']) +
+                       (obj_tag['c3a456_18'] + obj_tag['c3a789_18'] + obj_tag['c3b456_18'] + obj_tag['c3b789_18'] + obj_tag['c3cl_18']) +
+                       (obj_tag['c4a456_18'] + obj_tag['c4a789_18'] + obj_tag['c4b456_18'] + obj_tag['c4b789_18'] + obj_tag['c4cl_18']) +
+                       (obj_tag['c5a456_18'] + obj_tag['c5a789_18'] + obj_tag['c5b456_18'] + obj_tag['c5b789_18'] + obj_tag['c5cl_18']) +
+                       (obj_tag['c6a456_18'] + obj_tag['c6a789_18'] + obj_tag['c6b456_18'] + obj_tag['c6b789_18'] + obj_tag['c6cl_18']) ;
+    
+    var Buong_ngaycl = Buong_ngaykh - Buong_ngaytt;
+                       
 
-    obj_tag_value["Buong_ngaytt"] = Buong_ngaytt;
-    obj_tag_value["Tan_ngaytt"] = Tan_ngaytt;
-    obj_tag_value["Thung_9kgtt"] = Thung_9kgtt;
-    obj_tag_value["Thung_13kgtt"] = Thung_13kgtt;
-    obj_tag_value["Thung_18kgtt"] = Thung_18kgtt;
+    obj_tag["Buong_ngaytt"] = Buong_ngaytt;
+    obj_tag["Tan_ngaytt"] = Tan_ngaytt;
+    obj_tag["Thung_9tt"] = Thung_9tt;
+    obj_tag["Thung_13tt"] = Thung_13tt;
+    obj_tag["Thung_18tt"] = Thung_18tt;
 
-    io.sockets.emit("Buong_ngaytt", obj_tag_value["Buong_ngaytt"]);
-    io.sockets.emit("Tan_ngaytt", obj_tag_value["Tan_ngaytt"]);
-    io.sockets.emit("Thung_9kgtt", obj_tag_value["Thung_9kgtt"]);
-    io.sockets.emit("Thung_13kgtt", obj_tag_value["Thung_13kgtt"]);
-    io.sockets.emit("Thung_18kgtt", obj_tag_value["Thung_18kgtt"]);
+    io.sockets.emit("Buong_ngaytt", obj_tag["Buong_ngaytt"]);
+    io.sockets.emit("Tan_ngaytt", obj_tag["Tan_ngaytt"]);
+    io.sockets.emit("Thung_9tt", obj_tag["Thung_9tt"]);
+    io.sockets.emit("Thung_13tt", obj_tag["Thung_13tt"]);
+    io.sockets.emit("Thung_18tt", obj_tag["Thung_18tt"]);
 
-// Trả về các giá trị tính toán để sử dụng chúng ở nơi khác
-return {
-    Buong_ngaytt: Buong_ngaytt,
-    Tan_ngaytt: Tan_ngaytt,
-    Thung_9kgtt: Thung_9kgtt,
-    Thung_13kgtt: Thung_13kgtt,
-    Thung_18kgtt: Thung_18kgtt
-};
 }
 // /////////// GỬI DỮ LIỆU BẢNG TAG ĐẾN CLIENT (TRÌNH DUYỆT) ///////////////
 io.on("connection", function (socket) {
     socket.on("Client-send-data", function (data) {
-        fn_tag();
         tinhtoan();
     });
 });

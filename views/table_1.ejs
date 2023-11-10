@@ -18,12 +18,12 @@
     
 
 </head>
-<body>
+<body class="all">
     <%- include('header.ejs'); -%>
     <div class="table_1_page">
-        <video autoplay muted loop id="background-video">
+        <!-- <video autoplay muted loop id="background-video">
             <source src="/images/video_background_light.mp4" type="video/mp4">
-          </video>
+          </video> -->
         <table class="table_table1">
             <tr>
                 <td rowspan="3">Cell 1</td>
@@ -42,7 +42,10 @@
             </tr>
             <tr>
                 <td>KẾ HOẠCH</td>
-                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input id="kehoachbn" type="number" value="0" style="width: 95%;"></td>
+                <script>
+                    fn_Auto_IOField_IO("Buong_ngaykh", "kehoachbn", 0);
+                  </script>
                 <td><input type="number" value="0" style="width: 95%;"></td>
                 <td><input type="number" value="0" style="width: 95%;"></td>
                 <td><input type="number" value="0" style="width: 95%;"></td>

@@ -8,24 +8,24 @@
 
 //     // Tạo một mảng chứa các tag cần đăng ký sự kiện
 // var tags = [
-//     'chuyen_1_a456_9kg', 'chuyen_1_a456_13kg', 'chuyen_1_a456_18kg', 'chuyen_1_a789_9kg', 'chuyen_1_a789_13kg', 'chuyen_1_a789_18kg',
-//     'chuyen_1_b456_9kg', 'chuyen_1_b456_13kg', 'chuyen_1_b456_18kg', 'chuyen_1_b789_9kg', 'chuyen_1_b789_13kg', 'chuyen_1_b789_18kg',
-//     'chuyen_1_cl_9kg', 'chuyen_1_cl_13kg', 'chuyen_1_cl_18kg',
-//     'chuyen_2_a456_9kg', 'chuyen_2_a456_13kg', 'chuyen_2_a456_18kg', 'chuyen_2_a789_9kg', 'chuyen_2_a789_13kg', 'chuyen_2_a789_18kg',
-//     'chuyen_2_b456_9kg', 'chuyen_2_b456_13kg', 'chuyen_2_b456_18kg', 'chuyen_2_b789_9kg', 'chuyen_2_b789_13kg', 'chuyen_2_b789_18kg',
-//     'chuyen_2_cl_9kg', 'chuyen_2_cl_13kg', 'chuyen_2_cl_18kg',
-//     'chuyen_3_a456_9kg', 'chuyen_3_a456_13kg', 'chuyen_3_a456_18kg', 'chuyen_3_a789_9kg', 'chuyen_3_a789_13kg', 'chuyen_3_a789_18kg',
-//     'chuyen_3_b456_9kg', 'chuyen_3_b456_13kg', 'chuyen_3_b456_18kg', 'chuyen_3_b789_9kg', 'chuyen_3_b789_13kg', 'chuyen_3_b789_18kg',
-//     'chuyen_3_cl_9kg', 'chuyen_3_cl_13kg', 'chuyen_3_cl_18kg',
-//     'chuyen_4_a456_9kg', 'chuyen_4_a456_13kg', 'chuyen_4_a456_18kg', 'chuyen_4_a789_9kg', 'chuyen_4_a789_13kg', 'chuyen_4_a789_18kg',
-//     'chuyen_4_b456_9kg', 'chuyen_4_b456_13kg', 'chuyen_4_b456_18kg', 'chuyen_4_b789_9kg', 'chuyen_4_b789_13kg', 'chuyen_4_b789_18kg',
-//     'chuyen_4_cl_9kg', 'chuyen_4_cl_13kg', 'chuyen_4_cl_18kg',
-//     'chuyen_5_a456_9kg', 'chuyen_5_a456_13kg', 'chuyen_5_a456_18kg', 'chuyen_5_a789_9kg', 'chuyen_5_a789_13kg', 'chuyen_5_a789_18kg',
-//     'chuyen_5_b456_9kg', 'chuyen_5_b456_13kg', 'chuyen_5_b456_18kg', 'chuyen_5_b789_9kg', 'chuyen_5_b789_13kg', 'chuyen_5_b789_18kg',
-//     'chuyen_5_cl_9kg', 'chuyen_5_cl_13kg', 'chuyen_5_cl_18kg',
-//     'chuyen_6_a456_9kg', 'chuyen_6_a456_13kg', 'chuyen_6_a456_18kg', 'chuyen_6_a789_9kg', 'chuyen_6_a789_13kg', 'chuyen_6_a789_18kg',
-//     'chuyen_6_b456_9kg', 'chuyen_6_b456_13kg', 'chuyen_6_b456_18kg', 'chuyen_6_b789_9kg', 'chuyen_6_b789_13kg', 'chuyen_6_b789_18kg',
-//     'chuyen_6_cl_9kg', 'chuyen_6_cl_13kg', 'chuyen_6_cl_18kg',
+//     'a456_9', 'a456_13', 'a456_18', 'a789_9', 'a789_13', 'a789_18',
+//     'b456_9', 'b456_13', 'b456_18', 'b789_9', 'b789_13', 'b789_18',
+//     'cl_9', 'cl_13', 'cl_18',
+//     'a456_9', 'a456_13', 'a456_18', 'a789_9', 'a789_13', 'a789_18',
+//     'b456_9', 'b456_13', 'b456_18', 'b789_9', 'b789_13', 'b789_18',
+//     'cl_9', 'cl_13', 'cl_18',
+//     'a456_9', 'a456_13', 'a456_18', 'a789_9', 'a789_13', 'a789_18',
+//     'b456_9', 'b456_13', 'b456_18', 'b789_9', 'b789_13', 'b789_18',
+//     'cl_9', 'cl_13', 'cl_18',
+//     'a456_9', 'a456_13', 'a456_18', 'a789_9', 'a789_13', 'a789_18',
+//     'b456_9', 'b456_13', 'b456_18', 'b789_9', 'b789_13', 'b789_18',
+//     'cl_9', 'cl_13', 'cl_18',
+//     'a456_9', 'a456_13', 'a456_18', 'a789_9', 'a789_13', 'a789_18',
+//     'b456_9', 'b456_13', 'b456_18', 'b789_9', 'b789_13', 'b789_18',
+//     'cl_9', 'cl_13', 'cl_18',
+//     'a456_9', 'a456_13', 'a456_18', 'a789_9', 'a789_13', 'a789_18',
+//     'b456_9', 'b456_13', 'b456_18', 'b789_9', 'b789_13', 'b789_18',
+//     'cl_9', 'cl_13', 'cl_18',
 // ];
 
 // // Đăng ký sự kiện cho từng tag trong mảng
@@ -35,58 +35,58 @@
     
 // function calculate() {
 //     Buong_ngaytt = 9999;
-//     Tan_ngaytt = (values['chuyen_1_a456_9kg'] + values['chuyen_1_a789_9kg'] + values['chuyen_1_b456_9kg'] + values['chuyen_1_b789_9kg'] + values['chuyen_1_cl_9kg']) * 9 +
-//                  (values['chuyen_1_a456_13kg'] + values['chuyen_1_a789_13kg'] + values['chuyen_1_b456_13kg'] + values['chuyen_1_b789_13kg'] + values['chuyen_1_cl_13kg']) * 13 +
-//                  (values['chuyen_1_a456_18kg'] + values['chuyen_1_a789_18kg'] + values['chuyen_1_b456_18kg'] + values['chuyen_1_b789_18kg'] + values['chuyen_1_cl_18kg']) * 18 +
+//     Tan_ngaytt = (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) * 9 +
+//                  (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) * 13 +
+//                  (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) * 18 +
 
-//                  (values['chuyen_2_a456_9kg'] + values['chuyen_2_a789_9kg'] + values['chuyen_2_b456_9kg'] + values['chuyen_2_b789_9kg'] + values['chuyen_2_cl_9kg']) * 9 +
-//                  (values['chuyen_2_a456_13kg'] + values['chuyen_2_a789_13kg'] + values['chuyen_2_b456_13kg'] + values['chuyen_2_b789_13kg'] + values['chuyen_2_cl_13kg']) * 13 +
-//                  (values['chuyen_2_a456_18kg'] + values['chuyen_2_a789_18kg'] + values['chuyen_2_b456_18kg'] + values['chuyen_2_b789_18kg'] + values['chuyen_2_cl_18kg']) * 18 +
+//                  (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) * 9 +
+//                  (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) * 13 +
+//                  (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) * 18 +
 
-//                  (values['chuyen_3_a456_9kg'] + values['chuyen_3_a789_9kg'] + values['chuyen_3_b456_9kg'] + values['chuyen_3_b789_9kg'] + values['chuyen_3_cl_9kg']) * 9 +
-//                  (values['chuyen_3_a456_13kg'] + values['chuyen_3_a789_13kg'] + values['chuyen_3_b456_13kg'] + values['chuyen_3_b789_13kg'] + values['chuyen_3_cl_13kg']) * 13 +
-//                  (values['chuyen_3_a456_18kg'] + values['chuyen_3_a789_18kg'] + values['chuyen_3_b456_18kg'] + values['chuyen_3_b789_18kg'] + values['chuyen_3_cl_18kg']) * 18 +
+//                  (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) * 9 +
+//                  (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) * 13 +
+//                  (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) * 18 +
 
-//                  (values['chuyen_4_a456_9kg'] + values['chuyen_4_a789_9kg'] + values['chuyen_4_b456_9kg'] + values['chuyen_4_b789_9kg'] + values['chuyen_4_cl_9kg']) * 9 +
-//                  (values['chuyen_4_a456_13kg'] + values['chuyen_4_a789_13kg'] + values['chuyen_4_b456_13kg'] + values['chuyen_4_b789_13kg'] + values['chuyen_4_cl_13kg']) * 13 +
-//                  (values['chuyen_4_a456_18kg'] + values['chuyen_4_a789_18kg'] + values['chuyen_4_b456_18kg'] + values['chuyen_4_b789_18kg'] + values['chuyen_4_cl_18kg']) * 18 +
+//                  (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) * 9 +
+//                  (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) * 13 +
+//                  (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) * 18 +
 
-//                  (values['chuyen_5_a456_9kg'] + values['chuyen_5_a789_9kg'] + values['chuyen_5_b456_9kg'] + values['chuyen_5_b789_9kg'] + values['chuyen_5_cl_9kg']) * 9 +
-//                  (values['chuyen_5_a456_13kg'] + values['chuyen_5_a789_13kg'] + values['chuyen_5_b456_13kg'] + values['chuyen_5_b789_13kg'] + values['chuyen_5_cl_13kg']) * 13 +
-//                  (values['chuyen_5_a456_18kg'] + values['chuyen_5_a789_18kg'] + values['chuyen_5_b456_18kg'] + values['chuyen_5_b789_18kg'] + values['chuyen_5_cl_18kg']) * 18 +
+//                  (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) * 9 +
+//                  (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) * 13 +
+//                  (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) * 18 +
 
-//                  (values['chuyen_6_a456_9kg'] + values['chuyen_6_a789_9kg'] + values['chuyen_6_b456_9kg'] + values['chuyen_6_b789_9kg'] + values['chuyen_6_cl_9kg']) * 9 +
-//                  (values['chuyen_6_a456_13kg'] + values['chuyen_6_a789_13kg'] + values['chuyen_6_b456_13kg'] + values['chuyen_6_b789_13kg'] + values['chuyen_6_cl_13kg']) * 13 +
-//                  (values['chuyen_6_a456_18kg'] + values['chuyen_6_a789_18kg'] + values['chuyen_6_b456_18kg'] + values['chuyen_6_b789_18kg'] + values['chuyen_6_cl_18kg']) * 18 ;
+//                  (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) * 9 +
+//                  (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) * 13 +
+//                  (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) * 18 ;
 
-//     Thung_9kgtt = (values['chuyen_1_a456_9kg'] + values['chuyen_1_a789_9kg'] + values['chuyen_1_b456_9kg'] + values['chuyen_1_b789_9kg'] + values['chuyen_1_cl_9kg']) +
-//                   (values['chuyen_2_a456_9kg'] + values['chuyen_2_a789_9kg'] + values['chuyen_2_b456_9kg'] + values['chuyen_2_b789_9kg'] + values['chuyen_2_cl_9kg']) +
-//                   (values['chuyen_3_a456_9kg'] + values['chuyen_3_a789_9kg'] + values['chuyen_3_b456_9kg'] + values['chuyen_3_b789_9kg'] + values['chuyen_3_cl_9kg']) +
-//                   (values['chuyen_4_a456_9kg'] + values['chuyen_4_a789_9kg'] + values['chuyen_4_b456_9kg'] + values['chuyen_4_b789_9kg'] + values['chuyen_4_cl_9kg']) +
-//                   (values['chuyen_5_a456_9kg'] + values['chuyen_5_a789_9kg'] + values['chuyen_5_b456_9kg'] + values['chuyen_5_b789_9kg'] + values['chuyen_5_cl_9kg']) +
-//                   (values['chuyen_6_a456_9kg'] + values['chuyen_6_a789_9kg'] + values['chuyen_6_b456_9kg'] + values['chuyen_6_b789_9kg'] + values['chuyen_6_cl_9kg']) ;
+//     Thung_9tt = (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) +
+//                   (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) +
+//                   (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) +
+//                   (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) +
+//                   (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) +
+//                   (values['a456_9'] + values['a789_9'] + values['b456_9'] + values['b789_9'] + values['cl_9']) ;
 
-//     Thung_13kgtt = (values['chuyen_1_a456_13kg'] + values['chuyen_1_a789_13kg'] + values['chuyen_1_b456_13kg'] + values['chuyen_1_b789_13kg'] + values['chuyen_1_cl_13kg']) +
-//                    (values['chuyen_2_a456_13kg'] + values['chuyen_2_a789_13kg'] + values['chuyen_2_b456_13kg'] + values['chuyen_2_b789_13kg'] + values['chuyen_2_cl_13kg']) +
-//                    (values['chuyen_3_a456_13kg'] + values['chuyen_3_a789_13kg'] + values['chuyen_3_b456_13kg'] + values['chuyen_3_b789_13kg'] + values['chuyen_3_cl_13kg']) +
-//                    (values['chuyen_4_a456_13kg'] + values['chuyen_4_a789_13kg'] + values['chuyen_4_b456_13kg'] + values['chuyen_4_b789_13kg'] + values['chuyen_4_cl_13kg']) +
-//                    (values['chuyen_5_a456_13kg'] + values['chuyen_5_a789_13kg'] + values['chuyen_5_b456_13kg'] + values['chuyen_5_b789_13kg'] + values['chuyen_5_cl_13kg']) +
-//                    (values['chuyen_6_a456_13kg'] + values['chuyen_6_a789_13kg'] + values['chuyen_6_b456_13kg'] + values['chuyen_6_b789_13kg'] + values['chuyen_6_cl_13kg']) ;
+//     Thung_13tt = (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) +
+//                    (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) +
+//                    (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) +
+//                    (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) +
+//                    (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) +
+//                    (values['a456_13'] + values['a789_13'] + values['b456_13'] + values['b789_13'] + values['cl_13']) ;
 
-//     Thung_18kgtt = (values['chuyen_1_a456_18kg'] + values['chuyen_1_a789_18kg'] + values['chuyen_1_b456_18kg'] + values['chuyen_1_b789_18kg'] + values['chuyen_1_cl_18kg']) +
-//                    (values['chuyen_2_a456_18kg'] + values['chuyen_2_a789_18kg'] + values['chuyen_2_b456_18kg'] + values['chuyen_2_b789_18kg'] + values['chuyen_2_cl_18kg']) +
-//                    (values['chuyen_3_a456_18kg'] + values['chuyen_3_a789_18kg'] + values['chuyen_3_b456_18kg'] + values['chuyen_3_b789_18kg'] + values['chuyen_3_cl_18kg']) +
-//                    (values['chuyen_4_a456_18kg'] + values['chuyen_4_a789_18kg'] + values['chuyen_4_b456_18kg'] + values['chuyen_4_b789_18kg'] + values['chuyen_4_cl_18kg']) +
-//                    (values['chuyen_5_a456_18kg'] + values['chuyen_5_a789_18kg'] + values['chuyen_5_b456_18kg'] + values['chuyen_5_b789_18kg'] + values['chuyen_5_cl_18kg']) +
-//                    (values['chuyen_6_a456_18kg'] + values['chuyen_6_a789_18kg'] + values['chuyen_6_b456_18kg'] + values['chuyen_6_b789_18kg'] + values['chuyen_6_cl_18kg']) ;
+//     Thung_18tt = (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) +
+//                    (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) +
+//                    (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) +
+//                    (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) +
+//                    (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) +
+//                    (values['a456_18'] + values['a789_18'] + values['b456_18'] + values['b789_18'] + values['cl_18']) ;
 
 //     var dataCells = $('.data_cell');
 
 //     $(dataCells[0]).text(Buong_ngaytt);
 //     $(dataCells[1]).text(Tan_ngaytt);
-//     $(dataCells[2]).text(Thung_9kgtt);
-//     $(dataCells[3]).text(Thung_13kgtt);
-//     $(dataCells[4]).text(Thung_18kgtt);
+//     $(dataCells[2]).text(Thung_9tt);
+//     $(dataCells[3]).text(Thung_13tt);
+//     $(dataCells[4]).text(Thung_18tt);
 
 // }
 
@@ -106,9 +106,9 @@
 //     // Sử dụng dữ liệu từ tham số 'data' được truyền vào
 //     $(dataCells[0]).text(data.Buong_ngaytt);
 //     $(dataCells[1]).text(data.Tan_ngaytt);
-//     $(dataCells[2]).text(data.Thung_9kgtt);
-//     $(dataCells[3]).text(data.Thung_13kgtt);
-//     $(dataCells[4]).text(data.Thung_18kgtt);
+//     $(dataCells[2]).text(data.Thung_9tt);
+//     $(dataCells[3]).text(data.Thung_13tt);
+//     $(dataCells[4]).text(data.Thung_18tt);
 
 //     console.log('thubien',data.Buong_ngaytt);
 // }
@@ -116,7 +116,7 @@
 
 var valuets = {};
 // Tạo một mảng chứa các tag cần đăng ký sự kiện
-var tags = ['Buong_ngaytt', 'Tan_ngaytt', 'Thung_9kgtt', 'Thung_13kgtt', 'Thung_18kgtt'];
+var tags = ['Buong_ngaytt', 'Tan_ngaytt', 'Thung_9tt', 'Thung_13tt', 'Thung_18tt'];
 
 function fn_iotag(tag){
     socket.on(tag, function(valuet) {
@@ -135,16 +135,16 @@ function calculate() {
     // Gán giá trị cho các biến dựa trên dữ liệu từ 'values'
     Buong_ngayt = valuets['Buong_ngaytt'];
     Tan_ngayt = valuets['Tan_ngaytt'];
-    Thung_9kgt = valuets['Thung_9kgtt'];
-    Thung_13kgt = valuets['Thung_13kgtt'];
-    Thung_18kgt = valuets['Thung_18kgtt'];
+    Thung_9t = valuets['Thung_9tt'];
+    Thung_13t = valuets['Thung_13tt'];
+    Thung_18t = valuets['Thung_18tt'];
 
     var dataCells = $('.data_cell');
 
     $(dataCells[0]).text(Buong_ngayt);
     $(dataCells[1]).text(Tan_ngayt);
-    $(dataCells[2]).text(Thung_9kgt);
-    $(dataCells[3]).text(Thung_13kgt);
-    $(dataCells[4]).text(Thung_18kgt);
+    $(dataCells[2]).text(Thung_9t);
+    $(dataCells[3]).text(Thung_13t);
+    $(dataCells[4]).text(Thung_18t);
 }
 
