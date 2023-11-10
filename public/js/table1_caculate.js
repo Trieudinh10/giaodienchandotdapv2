@@ -114,13 +114,13 @@
 // }
 
 
-var valuets = {};
+var values = {};
 // Tạo một mảng chứa các tag cần đăng ký sự kiện
 var tags = ['Buong_ngaytt', 'Tan_ngaytt', 'Thung_9tt', 'Thung_13tt', 'Thung_18tt'];
 
 function fn_iotag(tag){
-    socket.on(tag, function(valuet) {
-        valuets[tag] = valuet;
+    socket.on(tag, function(value) {
+        values[tag] = value;
         calculate();
     })};
 
@@ -133,13 +133,13 @@ tags.forEach(function(tag) {
 
 function calculate() {
     // Gán giá trị cho các biến dựa trên dữ liệu từ 'values'
-    Buong_ngayt = valuets['Buong_ngaytt'];
-    Tan_ngayt = valuets['Tan_ngaytt'];
-    Thung_9t = valuets['Thung_9tt'];
-    Thung_13t = valuets['Thung_13tt'];
-    Thung_18t = valuets['Thung_18tt'];
+    Buong_ngayt = values['Buong_ngaytt'];
+    Tan_ngayt = values['Tan_ngaytt'];
+    Thung_9t = values['Thung_9tt'];
+    Thung_13t = values['Thung_13tt'];
+    Thung_18t = values['Thung_18tt'];
 
-    var dataCells = $('.data_cell');
+    var dataCells = $('.data_cell_tb11');
 
     $(dataCells[0]).text(Buong_ngayt);
     $(dataCells[1]).text(Tan_ngayt);

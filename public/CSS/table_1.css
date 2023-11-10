@@ -1,3 +1,4 @@
+
 .table_1_page{
     padding-top:46px ;
     margin: 0 auto;
@@ -23,7 +24,7 @@ td {
     padding: 8px; /* Khoảng cách giữa nội dung và đường viền của ô */
 }
 
-.data_cell{
+.data_cell_tb11{
     text-align: center;
 }
 

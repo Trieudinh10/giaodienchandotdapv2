@@ -30,10 +30,19 @@ app.get('/setting', function (req, res) {
 
 
 
-
-
-
 //////////////////////////////////////////////////////////////////////////*************************//////////////////////////////////////////////////////////////////////////
+// triger ghi dữ liệu vào SQL
+var insert_trigger = false;			// Trigger
+var old_insert_trigger = false;		// Trigger old
+// Declare an object to store values
+var tt_tag = {
+    Buong_ngaytt: null,
+    Tan_ngaytt: null,
+    Thung_9tt: null,
+    Thung_13tt: null,
+    Thung_18tt: null
+};
+
 
 // KHỞI TẠO KẾT NỐI PLC
 var nodes7 = require('nodes7');
@@ -74,7 +83,10 @@ function valuesReady(anythingBad, values) {
 // Hàm chức năng scan giá trị
 function fn_read_data_scan() {
     conn_plc.readAllItems(valuesReady);
-
+    trigger();
+    fn_sql_insert();
+    tinhtoan();
+    // fn_tag();
 }
 
 // Time cập nhật mỗi 1s
@@ -194,21 +206,16 @@ io.on("connection", function (socket) {
 //     io.sockets.emit("c6cl_9", obj_tag["c6cl_9"]);
 //     io.sockets.emit("c6cl_13", obj_tag["c6cl_13"]);
 //     io.sockets.emit("c6cl_18", obj_tag["c6cl_18"]);
-    
+//     io.sockets.emit("trigger", obj_tag["trigger"]);
+//     console.log("SQL - Ghi dữ liệu thành công", obj_tag["trigger"]);
 // }
 
-var Buong_ngaykh;
-var Tan_ngaykh;
-var Thung_9kh;
-var Thung_13kh;
-var Thung_18kh;
+
 
 function tinhtoan() {
-
-
-    
-    var Buong_ngaytt = 9999999;
-    var Tan_ngaytt = (obj_tag['c1a456_9'] + obj_tag['c1a789_9'] + obj_tag['c1b456_9'] + obj_tag['c1b789_9'] + obj_tag['c1cl_9']) * 9 +
+    ////////////////////TABLE1/////////////////////
+    Buong_ngaytt = obj_tag['c1a456_9'] + obj_tag['c1a789_9'];
+    Tan_ngaytt = (obj_tag['c1a456_9'] + obj_tag['c1a789_9'] + obj_tag['c1b456_9'] + obj_tag['c1b789_9'] + obj_tag['c1cl_9']) * 9 +
                      (obj_tag['c1a456_13'] + obj_tag['c1a789_13'] + obj_tag['c1b456_13'] + obj_tag['c1b789_13'] + obj_tag['c1cl_13']) * 13 +
                      (obj_tag['c1a456_18'] + obj_tag['c1a789_18'] + obj_tag['c1b456_18'] + obj_tag['c1b789_18'] + obj_tag['c1cl_18']) * 18 +
     
@@ -231,41 +238,50 @@ function tinhtoan() {
                      (obj_tag['c6a456_9'] + obj_tag['c6a789_9'] + obj_tag['c6b456_9'] + obj_tag['c6b789_9'] + obj_tag['c6cl_9']) * 9 +
                      (obj_tag['c6a456_13'] + obj_tag['c6a789_13'] + obj_tag['c6b456_13'] + obj_tag['c6b789_13'] + obj_tag['c6cl_13']) * 13 +
                      (obj_tag['c6a456_18'] + obj_tag['c6a789_18'] + obj_tag['c6b456_18'] + obj_tag['c6b789_18'] + obj_tag['c6cl_18']) * 18 ;
-    var Thung_9tt = (obj_tag['c1a456_9'] + obj_tag['c1a789_9'] + obj_tag['c1b456_9'] + obj_tag['c1b789_9'] + obj_tag['c1cl_9']) +
-                      (obj_tag['c2a456_9'] + obj_tag['c2a789_9'] + obj_tag['c2b456_9'] + obj_tag['c2b789_9'] + obj_tag['c2cl_9']) +
-                      (obj_tag['c3a456_9'] + obj_tag['c3a789_9'] + obj_tag['c3b456_9'] + obj_tag['c3b789_9'] + obj_tag['c3cl_9']) +
-                      (obj_tag['c4a456_9'] + obj_tag['c4a789_9'] + obj_tag['c4b456_9'] + obj_tag['c4b789_9'] + obj_tag['c4cl_9']) +
-                      (obj_tag['c5a456_9'] + obj_tag['c5a789_9'] + obj_tag['c5b456_9'] + obj_tag['c5b789_9'] + obj_tag['c5cl_9']) +
-                      (obj_tag['c6a456_9'] + obj_tag['c6a789_9'] + obj_tag['c6b456_9'] + obj_tag['c6b789_9'] + obj_tag['c6cl_9']) ;
-    var Thung_13tt = (obj_tag['c1a456_13'] + obj_tag['c1a789_13'] + obj_tag['c1b456_13'] + obj_tag['c1b789_13'] + obj_tag['c1cl_13']) +
-                       (obj_tag['c2a456_13'] + obj_tag['c2a789_13'] + obj_tag['c2b456_13'] + obj_tag['c2b789_13'] + obj_tag['c2cl_13']) +
-                       (obj_tag['c3a456_13'] + obj_tag['c3a789_13'] + obj_tag['c3b456_13'] + obj_tag['c3b789_13'] + obj_tag['c3cl_13']) +
-                       (obj_tag['c4a456_13'] + obj_tag['c4a789_13'] + obj_tag['c4b456_13'] + obj_tag['c4b789_13'] + obj_tag['c4cl_13']) +
-                       (obj_tag['c5a456_13'] + obj_tag['c5a789_13'] + obj_tag['c5b456_13'] + obj_tag['c5b789_13'] + obj_tag['c5cl_13']) +
-                       (obj_tag['c6a456_13'] + obj_tag['c6a789_13'] + obj_tag['c6b456_13'] + obj_tag['c6b789_13'] + obj_tag['c6cl_13']) ;
-    var Thung_18tt = (obj_tag['c1a456_18'] + obj_tag['c1a789_18'] + obj_tag['c1b456_18'] + obj_tag['c1b789_18'] + obj_tag['c1cl_18']) +
-                       (obj_tag['c2a456_18'] + obj_tag['c2a789_18'] + obj_tag['c2b456_18'] + obj_tag['c2b789_18'] + obj_tag['c2cl_18']) +
-                       (obj_tag['c3a456_18'] + obj_tag['c3a789_18'] + obj_tag['c3b456_18'] + obj_tag['c3b789_18'] + obj_tag['c3cl_18']) +
-                       (obj_tag['c4a456_18'] + obj_tag['c4a789_18'] + obj_tag['c4b456_18'] + obj_tag['c4b789_18'] + obj_tag['c4cl_18']) +
-                       (obj_tag['c5a456_18'] + obj_tag['c5a789_18'] + obj_tag['c5b456_18'] + obj_tag['c5b789_18'] + obj_tag['c5cl_18']) +
-                       (obj_tag['c6a456_18'] + obj_tag['c6a789_18'] + obj_tag['c6b456_18'] + obj_tag['c6b789_18'] + obj_tag['c6cl_18']) ;
+
+    Thung_9tt =  (obj_tag['c1a456_9'] + obj_tag['c1a789_9'] + obj_tag['c1b456_9'] + obj_tag['c1b789_9'] + obj_tag['c1cl_9']) +
+                     (obj_tag['c2a456_9'] + obj_tag['c2a789_9'] + obj_tag['c2b456_9'] + obj_tag['c2b789_9'] + obj_tag['c2cl_9']) +
+                     (obj_tag['c3a456_9'] + obj_tag['c3a789_9'] + obj_tag['c3b456_9'] + obj_tag['c3b789_9'] + obj_tag['c3cl_9']) +
+                     (obj_tag['c4a456_9'] + obj_tag['c4a789_9'] + obj_tag['c4b456_9'] + obj_tag['c4b789_9'] + obj_tag['c4cl_9']) +
+                     (obj_tag['c5a456_9'] + obj_tag['c5a789_9'] + obj_tag['c5b456_9'] + obj_tag['c5b789_9'] + obj_tag['c5cl_9']) +
+                     (obj_tag['c6a456_9'] + obj_tag['c6a789_9'] + obj_tag['c6b456_9'] + obj_tag['c6b789_9'] + obj_tag['c6cl_9']) ;
+
+    Thung_13tt = (obj_tag['c1a456_13'] + obj_tag['c1a789_13'] + obj_tag['c1b456_13'] + obj_tag['c1b789_13'] + obj_tag['c1cl_13']) +
+                     (obj_tag['c2a456_13'] + obj_tag['c2a789_13'] + obj_tag['c2b456_13'] + obj_tag['c2b789_13'] + obj_tag['c2cl_13']) +
+                     (obj_tag['c3a456_13'] + obj_tag['c3a789_13'] + obj_tag['c3b456_13'] + obj_tag['c3b789_13'] + obj_tag['c3cl_13']) +
+                     (obj_tag['c4a456_13'] + obj_tag['c4a789_13'] + obj_tag['c4b456_13'] + obj_tag['c4b789_13'] + obj_tag['c4cl_13']) +
+                     (obj_tag['c5a456_13'] + obj_tag['c5a789_13'] + obj_tag['c5b456_13'] + obj_tag['c5b789_13'] + obj_tag['c5cl_13']) +
+                     (obj_tag['c6a456_13'] + obj_tag['c6a789_13'] + obj_tag['c6b456_13'] + obj_tag['c6b789_13'] + obj_tag['c6cl_13']) ;
+                     
+    Thung_18tt = (obj_tag['c1a456_18'] + obj_tag['c1a789_18'] + obj_tag['c1b456_18'] + obj_tag['c1b789_18'] + obj_tag['c1cl_18']) +
+                     (obj_tag['c2a456_18'] + obj_tag['c2a789_18'] + obj_tag['c2b456_18'] + obj_tag['c2b789_18'] + obj_tag['c2cl_18']) +
+                     (obj_tag['c3a456_18'] + obj_tag['c3a789_18'] + obj_tag['c3b456_18'] + obj_tag['c3b789_18'] + obj_tag['c3cl_18']) +
+                     (obj_tag['c4a456_18'] + obj_tag['c4a789_18'] + obj_tag['c4b456_18'] + obj_tag['c4b789_18'] + obj_tag['c4cl_18']) +
+                     (obj_tag['c5a456_18'] + obj_tag['c5a789_18'] + obj_tag['c5b456_18'] + obj_tag['c5b789_18'] + obj_tag['c5cl_18']) +
+                     (obj_tag['c6a456_18'] + obj_tag['c6a789_18'] + obj_tag['c6b456_18'] + obj_tag['c6b789_18'] + obj_tag['c6cl_18']) ;
     
-    var Buong_ngaycl = Buong_ngaykh - Buong_ngaytt;
                        
+    tt_tag["Buong_ngaytt"] = Buong_ngaytt;
+    tt_tag["Tan_ngaytt"] = Tan_ngaytt;
+    tt_tag["Thung_9tt"] = Thung_9tt;
+    tt_tag["Thung_13tt"] = Thung_13tt;
+    tt_tag["Thung_18tt"] = Thung_18tt;
 
-    obj_tag["Buong_ngaytt"] = Buong_ngaytt;
-    obj_tag["Tan_ngaytt"] = Tan_ngaytt;
-    obj_tag["Thung_9tt"] = Thung_9tt;
-    obj_tag["Thung_13tt"] = Thung_13tt;
-    obj_tag["Thung_18tt"] = Thung_18tt;
-
-    io.sockets.emit("Buong_ngaytt", obj_tag["Buong_ngaytt"]);
-    io.sockets.emit("Tan_ngaytt", obj_tag["Tan_ngaytt"]);
-    io.sockets.emit("Thung_9tt", obj_tag["Thung_9tt"]);
-    io.sockets.emit("Thung_13tt", obj_tag["Thung_13tt"]);
-    io.sockets.emit("Thung_18tt", obj_tag["Thung_18tt"]);
-
+    
+    ////////////////////TABLE2/////////////////////
 }
+
+io.on("connection", function(socket){
+    socket.on("Client-send-data", function(data){
+        io.sockets.emit("Buong_ngaytt", tt_tag["Buong_ngaytt"]);
+    io.sockets.emit("Tan_ngaytt", tt_tag["Tan_ngaytt"]);
+    io.sockets.emit("Thung_9tt", tt_tag["Thung_9tt"]);
+    io.sockets.emit("Thung_13tt", tt_tag["Thung_13tt"]);
+    io.sockets.emit("Thung_18tt", tt_tag["Thung_18tt"]);
+          
+});});
+
+
 // /////////// GỬI DỮ LIỆU BẢNG TAG ĐẾN CLIENT (TRÌNH DUYỆT) ///////////////
 io.on("connection", function (socket) {
     socket.on("Client-send-data", function (data) {
@@ -279,6 +295,66 @@ function valuesWritten(anythingBad) {
     console.log("Done writing.");
 }
 
+var triggger = true; // Chú ý đến việc sửa chính tả từ "triggger" thành "trigger"
+function trigger() {
+    setInterval(function () {
+        triggger = !triggger; // Chuyển đổi giá trị giữa true và false
+    }, 1000); // Mỗi giây
+    obj_tag["triggger"] = triggger;
+    io.sockets.emit("triggger", obj_tag["triggger"]);
+}
+
+// Khởi tạo SQL
+var mysql = require('mysql');
+
+var sqlcon = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "123456",
+  database: "sql_banana",
+  dateStrings:true // Hiển thị không có T và Z
+});
 
 
+function fn_sql_insert(){
+
+    insert_trigger = obj_tag["triggger"];		// Read trigger from PLC
+    var sqltable_Name = "server_data";
+    // Lấy thời gian hiện tại
+	var tzoffset = (new Date()).getTimezoneOffset() * 60000; //Vùng Việt Nam (GMT7+)
+	var temp_datenow = new Date();
+	var timeNow = (new Date(temp_datenow - tzoffset)).toISOString().slice(0, -1).replace("T"," ");
+	var timeNow_toSQL = "'" + timeNow + "',";
+
+
+    // Dữ liệu đọc lên từ các tag
+    Buong_ngaytt = "'" + tt_tag["Buong_ngaytt"] + "',";
+    Tan_ngaytt = "'" + tt_tag["Tan_ngaytt"] + "',";
+    Thung_9tt = "'" + tt_tag["Thung_9tt"] + "',";
+    Thung_13tt = "'" + tt_tag["Thung_13tt"] + "',";
+    Thung_18tt = "'" + tt_tag["Thung_18tt"] + "'";
+
+// Ghi dữ liệu vào SQL
+if (insert_trigger && !old_insert_trigger && !isNaN(insert_trigger))
+{
+    var sql_write_str11 = "INSERT INTO " + sqltable_Name + " (date_time, Buong_ngaytt, Tan_ngaytt, Thung_9tt, Thung_13tt, Thung_18tt) VALUES (";
+    var sql_write_str12 = timeNow_toSQL 
+                        + Buong_ngaytt 
+                        + Tan_ngaytt
+                        + Thung_9tt
+                        + Thung_13tt
+                        + Thung_18tt
+                        ;
+    var sql_write_str1 = sql_write_str11 + sql_write_str12 + ");";
+    // Thực hiện ghi dữ liệu vào SQL
+    sqlcon.query(sql_write_str1, function (err, result) {
+        if (err) {
+            console.log(err);
+         } else {
+            console.log("SQL - Ghi dữ liệu thành công");
+          } 
+        });
+}
+old_insert_trigger = insert_trigger;
+}
 

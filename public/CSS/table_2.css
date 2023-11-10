@@ -25,3 +25,7 @@ td {
     border: 4px solid #09d109; /* Đường viền cho từng ô */
     padding: 8px; /* Khoảng cách giữa nội dung và đường viền của ô */
 }
+
+data_cell_tb21{
+    text-align: center;
+}

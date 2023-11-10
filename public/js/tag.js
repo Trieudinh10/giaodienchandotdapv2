@@ -131,6 +131,7 @@ var tags_list = {
     c6cl_9: 'DB1,INT174',
     c6cl_13: 'DB1,INT176',
     c6cl_18: 'DB1,INT178',
+    trigger: 'DB1,X180.0'
     
 };
 

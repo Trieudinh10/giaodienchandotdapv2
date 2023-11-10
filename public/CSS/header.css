@@ -27,7 +27,6 @@
     max-width: 100%;
 }
 
-
 .menu{
     width: 100%;
     height: 100%;
@@ -59,5 +58,3 @@
 .menu ul a:hover::before {
     width: 100%;
 }
-
-
