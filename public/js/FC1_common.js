@@ -18,18 +18,14 @@ function fn_IOFieldDataShow(tag, IOField, tofix) {
   }
 
 
-  // Chương trình con đọc dữ liệu lên IO Field
-function fn_IOField_IO(tag, IOField, tofix)
+
+// Chương trình con nút sửa/lưu dữ liệu
+function fn_DataEdit(button1, button2)
 {
-    socket.on(tag, function(data){
-        if (tofix == 0 & data_edditting != true)
-        {
-            document.getElementById(IOField).value = data;
-        }
-        else if(data_edditting != true)
-        {
-            document.getElementById(IOField).value = data.toFixed(tofix);
-        }
-    });
+    document.getElementById(button1).style.zIndex='1';  // Hiển nút 1
+    document.getElementById(button2).style.zIndex='0';  // Ẩn nút 2
 }
+
+
+
 

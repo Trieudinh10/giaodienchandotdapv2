@@ -116,7 +116,8 @@
 
 var values = {};
 // Tạo một mảng chứa các tag cần đăng ký sự kiện
-var tags = ['Buong_ngaytt', 'Tan_ngaytt', 'Thung_9tt', 'Thung_13tt', 'Thung_18tt'];
+var tags = ['Buong_ngaytt', 'Tan_ngaytt', 'Thung_9tt', 'Thung_13tt', 'Thung_18tt',
+            'Buong_ngaykh', 'Tan_ngaykh', 'Thung_9kh', 'Thung_13kh', 'Thung_18kh'];
 
 function fn_iotag(tag){
     socket.on(tag, function(value) {
@@ -147,4 +148,21 @@ function calculate() {
     $(dataCells[3]).text(Thung_13t);
     $(dataCells[4]).text(Thung_18t);
 }
+
+
+
+function assignValue() {
+    console.log('Hàm assignValue() được gọi.'); // Thêm dòng này
+    // Phần còn lại của mã của bạn...
+
+
+    const inputValue = document.getElementById('inputValue').value;
+
+    // Gán giá trị cho biến abd
+    Buong_ngaykh = inputValue;
+
+    // Hiển thị giá trị đã gán (bạn có thể bỏ qua dòng này nếu không muốn hiển thị)
+    console.log('Giá trị đã gán cho biến abd:', Buong_ngaykh);
+}
+
 

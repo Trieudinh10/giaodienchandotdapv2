@@ -99,4 +99,5 @@ function fn_tag(io, obj_tag) {
     io.sockets.emit("cl_18", obj_tag["cl_18"]);
     io.sockets.emit("trigger", obj_tag["trigger"]);
     console.log("SQL - Ghi dữ liệu thành công", obj_tag["trigger"]);
+    io.sockets.emit("Buong_ngaykh", obj_tag["Buong_ngaykh"]);
 }

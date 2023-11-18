@@ -10,6 +10,7 @@
     <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG ////////////// -->
     <script src = "socket.io/socket.io.js"></script>
     <script src="/js/FC1_common.js"></script>
+    <script src="/js/FC2_edit.js"></script>
     <script src="/js/table1_caculate.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -24,6 +25,13 @@
         <!-- <video autoplay muted loop id="background-video">
             <source src="/images/video_background_light.mp4" type="video/mp4">
           </video> -->
+
+          <!--Nút nhấn sửa lưu dữ liệu-->
+        <div class="save_edit_btn">
+            <button class="btn_sua_luu" id="btt_Main_Save" onclick="fn_SaveBtt()">LUU</button>
+            <button class="btn_sua_luu" id="btt_Main_Edit" onclick="fn_EditBtt()">SUA</button>
+          </div>
+
         <table class="table_table1">
             <tr>
                 <td rowspan="3">Cell 1</td>
@@ -42,14 +50,85 @@
             </tr>
             <tr>
                 <td>KẾ HOẠCH</td>
-                <td><input id="kehoachbn" type="number" value="0" style="width: 95%;"></td>
-                <script>
-                    fn_Auto_IOField_IO("Buong_ngaykh", "kehoachbn", 0);
-                  </script>
-                <td><input type="number" value="0" style="width: 95%;"></td>
-                <td><input type="number" value="0" style="width: 95%;"></td>
-                <td><input type="number" value="0" style="width: 95%;"></td>
-                <td><input type="number" value="0" style="width: 95%;"></td>
+                <td><input disabled="disabled" id="kehoachbn" type="number" style="width: 95%;"></td>
+                <!-- <script>
+                    // Kiểm tra xem đã có giá trị được lưu trong localStorage chưa
+                    var storedValue = localStorage.getItem('kehoachbn');
+                    if (storedValue) {
+                        document.getElementById('kehoachbn').value = storedValue;
+                    }
+            
+                    // Lắng nghe sự kiện nhập liệu
+                    document.getElementById('kehoachbn').addEventListener('input', function () {
+                        // Lưu giá trị vào localStorage
+                        localStorage.setItem('kehoachbn', this.value);
+                    });
+                </script> -->
+                <script>fn_IOField_IO("Buong_ngaykh", "kehoachbn", 0);</script>
+
+                <td><input disabled="disabled" id="kehoachtn" type="number" style="width: 95%;"></td>
+                <!-- <script>
+                    // Kiểm tra xem đã có giá trị được lưu trong localStorage chưa
+                    var storedValue = localStorage.getItem('kehoachtn');
+                    if (storedValue) {
+                        document.getElementById('kehoachtn').value = storedValue;
+                    }
+            
+                    // Lắng nghe sự kiện nhập liệu
+                    document.getElementById('kehoachtn').addEventListener('input', function () {
+                        // Lưu giá trị vào localStorage
+                        localStorage.setItem('kehoachtn', this.value);
+                    });
+                </script> -->
+                <script>fn_IOField_IO("Tan_ngaykh", "kehoachtn", 0);</script>
+                
+                <td><input disabled="disabled" id="kehoach9" type="number" style="width: 95%;"></td>
+                <!-- <script>
+                    // Kiểm tra xem đã có giá trị được lưu trong localStorage chưa
+                    var storedValue = localStorage.getItem('kehoach9');
+                    if (storedValue) {
+                        document.getElementById('kehoach9').value = storedValue;
+                    }
+            
+                    // Lắng nghe sự kiện nhập liệu
+                    document.getElementById('kehoach9').addEventListener('input', function () {
+                        // Lưu giá trị vào localStorage
+                        localStorage.setItem('kehoach9', this.value);
+                    });
+                </script> -->
+                <script>fn_IOField_IO("Thung_9kh", "kehoach9", 0);</script>
+
+                <td><input disabled="disabled" id="kehoach13" type="number" style="width: 95%;"></td>
+                <!-- <script>
+                    // Kiểm tra xem đã có giá trị được lưu trong localStorage chưa
+                    var storedValue = localStorage.getItem('kehoach13');
+                    if (storedValue) {
+                        document.getElementById('kehoach13').value = storedValue;
+                    }
+            
+                    // Lắng nghe sự kiện nhập liệu
+                    document.getElementById('kehoach13').addEventListener('input', function () {
+                        // Lưu giá trị vào localStorage
+                        localStorage.setItem('kehoach13', this.value);
+                    });
+                </script> -->
+                <script>fn_IOField_IO("Thung_13kh", "kehoach13", 0);</script>
+
+                <td><input disabled="disabled" id="kehoach18" type="number" style="width: 95%;"></td>
+                <!-- <script>
+                    // Kiểm tra xem đã có giá trị được lưu trong localStorage chưa
+                    var storedValue = localStorage.getItem('kehoach18');
+                    if (storedValue) {
+                        document.getElementById('kehoach18').value = storedValue;
+                    }
+            
+                    // Lắng nghe sự kiện nhập liệu
+                    document.getElementById('kehoach18').addEventListener('input', function () {
+                        // Lưu giá trị vào localStorage
+                        localStorage.setItem('kehoach18', this.value);
+                    });
+                </script> -->
+                <script>fn_IOField_IO("Thung_18kh", "kehoach18", 0);</script>
             </tr>
             <tr>
                 <td>THỰC TẾ</td>

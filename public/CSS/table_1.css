@@ -32,3 +32,32 @@ td {
     /* box-shadow: 0 4px 6px 2px #00000020; */
     box-shadow: 0 4px 6px 2px #00000041;
 }
+
+/*Nút nhấn LƯU*/
+#btt_Main_Save {
+    border: none;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 120px; height: 40px;
+    left: 1575px; top: 3px;
+}
+/*Nút nhấn SỬA*/
+#btt_Main_Edit {
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    width: 120px; height: 40px;
+    left: 1575px; top: 3px;
+}
