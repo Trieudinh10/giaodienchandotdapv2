@@ -34,11 +34,11 @@ var insert_trigger = false;			// Trigger
 var old_insert_trigger = false;		// Trigger old
 // Declare an object to store values
 var tt_tag = {
-    Buong_ngaytt: [],
-    Tan_ngaytt: [],
-    Thung_9tt: [],
-    Thung_13tt: [],
-    Thung_18tt: [],
+    Buong_ngaytt: 0,
+    Tan_ngaytt: 0,
+    Thung_9tt: 0,
+    Thung_13tt: 0,
+    Thung_18tt: 0,
     Buong_ngaykh:0,
     Tan_ngaykh:0,
     Thung_9kh:0,
@@ -46,7 +46,7 @@ var tt_tag = {
     Thung_18kh:0
 };
 
-console.log('jfn', tt_tag)
+// console.log('jfn', tt_tag)
 // var plcData = [0, 0, 0, 0, 0]; // Giả sử giá trị mặc định
 
 
@@ -281,7 +281,7 @@ function tinhtoan() {
         io.sockets.emit("Thung_13tt", tt_tag["Thung_13tt"]);
         io.sockets.emit("Thung_18tt", tt_tag["Thung_18tt"]);
 
-    
+
     ////////////////////TABLE2/////////////////////
 }
 
@@ -321,8 +321,6 @@ io.on("connection", function(socket) {
         Thung_13kh = data[3];
         Thung_18kh = data[4];
 
-        // plcData = data; // Lưu trữ dữ liệu mới nhận được
-        // console.log('abcd',plcData );
 
         tt_tag["Buong_ngaykh"] = Buong_ngaykh;
         tt_tag["Tan_ngaykh"] = Tan_ngaykh;
@@ -379,35 +377,41 @@ var sqlcon = mysql.createConnection({
   dateStrings:true // Hiển thị không có T và Z
 });
 
-function fn_sql_nhap(){
+var old_buong_ngay;
+
+function fn_sql_nhap() {
     var sqltable_Name = "nhap_data";
     // Lấy thời gian hiện tại
-	var tzoffset = (new Date()).getTimezoneOffset() * 60000; // Vùng Việt Nam (GMT7+)
-	var temp_datenow = new Date();
-	var timeNow = (new Date(temp_datenow - tzoffset)).toISOString().slice(0, -1).replace("T"," ");
-	var timeNow_toSQL = "'" + timeNow + "',";
- 
+    var tzoffset = (new Date()).getTimezoneOffset() * 60000; // Vùng Việt Nam (GMT7+)
+    var temp_datenow = new Date();
+    var timeNow = (new Date(temp_datenow - tzoffset)).toISOString().slice(0, -1).replace("T", " ");-0
+    var timeNow_toSQL = "'" + timeNow + "',";
+
     // Dữ liệu đọc lên từ các tag
     Buong_ngaykh = "'" + tt_tag["Buong_ngaykh"] + "',";
     Tan_ngaykh = "'" + tt_tag["Tan_ngaykh"] + "',";
     Thung_9kh = "'" + tt_tag["Thung_9kh"] + "',";
     Thung_13kh = "'" + tt_tag["Thung_13kh"] + "',";
     Thung_18kh = "'" + tt_tag["Thung_18kh"] + "'";
-    // Thêm cảnh báo vào SQL
-    var str1 = "INSERT INTO " + sqltable_Name + " (date_time, Buong_ngaykh, Tan_ngaykh, Thung_9kh,Thung_13kh,Thung_18kh) VALUES (";
-    var str2 = timeNow_toSQL
-                + Buong_ngaykh
-                + Tan_ngaykh
-                + Thung_9kh
-                + Thung_13kh
-                + Thung_18kh
-                ;
-    var str = str1 + str2 + ");";
-    // Ghi dữ liệu cảnh báo vào SQL
-	sqlcon.query(str, function (err, result) {
-        if (err) {console.log(err);} else {}
-    });
-
+    if (Buong_ngaykh !== old_buong_ngay) {
+        // Thêm cảnh báo vào SQL
+        var str1 = "INSERT INTO " + sqltable_Name + " (date_time, Buong_ngaykh, Tan_ngaykh, Thung_9kh,Thung_13kh,Thung_18kh) VALUES (";
+        var str2 = timeNow_toSQL
+            + Buong_ngaykh
+            + Tan_ngaykh
+            + Thung_9kh
+            + Thung_13kh
+            + Thung_18kh
+            ;
+        var str = str1 + str2 + ");";
+        // Ghi dữ liệu cảnh báo vào SQL
+        sqlcon.query(str, function (err, result) {
+            if (err) {
+                console.log(err);
+            } else {}
+        });
+        old_buong_ngay = Buong_ngaykh;
+    }
 }
 
 
