@@ -28,6 +28,10 @@ td {
     text-align: center;
 }
 
+.data_cell_tb12{
+    text-align: center;
+}
+
 .table_table1{
     /* box-shadow: 0 4px 6px 2px #00000020; */
     box-shadow: 0 4px 6px 2px #00000041;

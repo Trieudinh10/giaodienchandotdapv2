@@ -34,16 +34,21 @@ var insert_trigger = false;			// Trigger
 var old_insert_trigger = false;		// Trigger old
 // Declare an object to store values
 var tt_tag = {
-    Buong_ngaytt: 0,
-    Tan_ngaytt: 0,
-    Thung_9tt: 0,
-    Thung_13tt: 0,
-    Thung_18tt: 0,
-    Buong_ngaykh:0,
-    Tan_ngaykh:0,
-    Thung_9kh:0,
-    Thung_13kh:0,
-    Thung_18kh:0
+    Buong_ngaytt: [],
+    Tan_ngaytt: [],
+    Thung_9tt: [],
+    Thung_13tt: [],
+    Thung_18tt: [],
+    Buong_ngaykh:[],
+    Tan_ngaykh:[],
+    Thung_9kh:[],
+    Thung_13kh:[],
+    Thung_18kh:[],
+    Buong_ngaycl:[],
+    Tan_ngaycl:[],
+    Thung_9cl:[],
+    Thung_13cl:[],
+    Thung_18cl:[]
 };
 
 // console.log('jfn', tt_tag)
@@ -81,7 +86,7 @@ function valuesReady(anythingBad, values) {
     if (anythingBad) { console.log("Lỗi khi đọc dữ liệu tag"); } // Cảnh báo lỗi
     var lodash = require('lodash'); // Chuyển variable sang array
     arr_tag = lodash.map(values, (item) => item);
-    console.log("Data S1", arr_tag); // Hiển thị giá trị để kiểm tra
+    console.log("Data from PLC", arr_tag); // Hiển thị giá trị để kiểm tra
     obj_tag = values;
 }
 
@@ -91,7 +96,8 @@ function fn_read_data_scan() {
     trigger();
     fn_sql_insert();
     fn_sql_nhap();
-    tinhtoan();
+    caculate_tt();
+    caculate_cl();
     fn_tag();
 }
 
@@ -218,7 +224,7 @@ function fn_tag() {
 
 
 
-function tinhtoan() {
+function caculate_tt() {
     ////////////////////TABLE1/////////////////////
     Buong_ngaytt = obj_tag['c1a456_9'] + obj_tag['c1a789_9'];
     Tan_ngaytt = (obj_tag['c1a456_9'] + obj_tag['c1a789_9'] + obj_tag['c1b456_9'] + obj_tag['c1b789_9'] + obj_tag['c1cl_9']) * 9 +
@@ -272,7 +278,7 @@ function tinhtoan() {
         tt_tag["Thung_9tt"] = Thung_9tt;
         tt_tag["Thung_13tt"] = Thung_13tt;
         tt_tag["Thung_18tt"] = Thung_18tt;
-        console.log(Buong_ngaytt,Tan_ngaytt,Thung_9tt,Thung_13tt,Thung_18tt)
+        console.log('Gia tri thuc te',Buong_ngaytt,Tan_ngaytt,Thung_9tt,Thung_13tt,Thung_18tt)
 
 
         io.sockets.emit("Buong_ngaytt", tt_tag["Buong_ngaytt"]);
@@ -301,7 +307,8 @@ function tinhtoan() {
 // /////////// GỬI DỮ LIỆU BẢNG TAG ĐẾN CLIENT (TRÌNH DUYỆT) ///////////////
 io.on("connection", function (socket) {
     socket.on("Client-send-data", function (data) {
-        tinhtoan();
+        caculate_tt();
+        caculate_cl();
     });
 });
 
@@ -327,7 +334,7 @@ io.on("connection", function(socket) {
         tt_tag["Thung_9kh"] = Thung_9kh;
         tt_tag["Thung_13kh"] = Thung_13kh;
         tt_tag["Thung_18kh"] = Thung_18kh;
-        console.log(Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
+        // console.log('Gia tri ke hoach',Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
     });
 });
 
@@ -339,9 +346,33 @@ io.on("connection", function(socket){
         io.sockets.emit("Thung_9kh", tt_tag["Thung_9kh"]);
         io.sockets.emit("Thung_13kh", tt_tag["Thung_13kh"]);
         io.sockets.emit("Thung_18kh", tt_tag["Thung_18kh"]);
-        console.log(Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
+        console.log('Gia tri ke hoach',Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
           
 });});
+
+function caculate_cl(){
+
+
+    Buong_ngaycl = tt_tag["Buong_ngaykh"] - tt_tag["Buong_ngaytt"];
+    Tan_ngaycl = tt_tag["Tan_ngaykh"] - tt_tag["Tan_ngaytt"];
+    Thung_9cl = tt_tag["Thung_9kh"] - tt_tag["Thung_9tt"];
+    Thung_13cl = tt_tag["Thung_13kh"] - tt_tag["Thung_13tt"];
+    Thung_18cl = tt_tag["Thung_18kh"] - tt_tag["Thung_18tt"];
+
+    tt_tag["Buong_ngaycl"] = Buong_ngaycl;
+    tt_tag["Tan_ngaycl"] = Tan_ngaycl;
+    tt_tag["Thung_9cl"] = Thung_9cl;
+    tt_tag["Thung_13cl"] = Thung_13cl;
+    tt_tag["Thung_18cl"] = Thung_18cl;
+    console.log('Gia tri chenh lech',Buong_ngaycl,Tan_ngaycl,Thung_9cl,Thung_13cl,Thung_18cl)
+
+
+    io.sockets.emit("Buong_ngaycl", tt_tag["Buong_ngaycl"]);
+    io.sockets.emit("Tan_ngaycl", tt_tag["Tan_ngaycl"]);
+    io.sockets.emit("Thung_9cl", tt_tag["Thung_9cl"]);
+    io.sockets.emit("Thung_13cl", tt_tag["Thung_13cl"]);
+    io.sockets.emit("Thung_18cl", tt_tag["Thung_18cl"]);
+}
 
 
 // // MÀN HÌNH CHÍNH
@@ -377,7 +408,11 @@ var sqlcon = mysql.createConnection({
   dateStrings:true // Hiển thị không có T và Z
 });
 
-var old_buong_ngay;
+var old_buong_ngaykh;
+var old_tan_ngaykh;
+var old_thung9kh;
+var old_thung13kh;
+var old_thung18kh;
 
 function fn_sql_nhap() {
     var sqltable_Name = "nhap_data";
@@ -393,7 +428,7 @@ function fn_sql_nhap() {
     Thung_9kh = "'" + tt_tag["Thung_9kh"] + "',";
     Thung_13kh = "'" + tt_tag["Thung_13kh"] + "',";
     Thung_18kh = "'" + tt_tag["Thung_18kh"] + "'";
-    if (Buong_ngaykh !== old_buong_ngay) {
+    if (Buong_ngaykh !== old_buong_ngaykh || Tan_ngaykh !== old_tan_ngaykh || Thung_9kh !== old_thung9kh || Thung_13kh !== old_thung13kh || Thung_18kh !== old_thung18kh) {
         // Thêm cảnh báo vào SQL
         var str1 = "INSERT INTO " + sqltable_Name + " (date_time, Buong_ngaykh, Tan_ngaykh, Thung_9kh,Thung_13kh,Thung_18kh) VALUES (";
         var str2 = timeNow_toSQL
@@ -410,10 +445,13 @@ function fn_sql_nhap() {
                 console.log(err);
             } else {}
         });
-        old_buong_ngay = Buong_ngaykh;
+        old_buong_ngaykh = Buong_ngaykh;
+        old_tan_ngaykh = Tan_ngaykh;
+        old_thung9kh = Thung_9kh;
+        old_thung13kh = Thung_13kh;
+        old_thung18kh = Thung_18kh;
     }
 }
-
 
 
 function fn_sql_insert(){

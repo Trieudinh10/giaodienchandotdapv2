@@ -117,7 +117,8 @@
 var values = {};
 // Tạo một mảng chứa các tag cần đăng ký sự kiện
 var tags = ['Buong_ngaytt', 'Tan_ngaytt', 'Thung_9tt', 'Thung_13tt', 'Thung_18tt',
-            'Buong_ngaykh', 'Tan_ngaykh', 'Thung_9kh', 'Thung_13kh', 'Thung_18kh'];
+            'Buong_ngaykh', 'Tan_ngaykh', 'Thung_9kh', 'Thung_13kh', 'Thung_18kh',
+            'Buong_ngaycl', 'Tan_ngaycl', 'Thung_9cl', 'Thung_13cl', 'Thung_18cl'];
 
 function fn_iotag(tag){
     socket.on(tag, function(value) {
@@ -147,22 +148,36 @@ function calculate() {
     $(dataCells[2]).text(Thung_9t);
     $(dataCells[3]).text(Thung_13t);
     $(dataCells[4]).text(Thung_18t);
+
+    Buong_ngayc = values['Buong_ngaycl'];
+    Tan_ngayc = values['Tan_ngaycl'];
+    Thung_9c = values['Thung_9cl'];
+    Thung_13c = values['Thung_13cl'];
+    Thung_18c = values['Thung_18cl'];
+
+    var dataCells = $('.data_cell_tb12');
+
+    $(dataCells[0]).text(Buong_ngayc);
+    $(dataCells[1]).text(Tan_ngayc);
+    $(dataCells[2]).text(Thung_9c);
+    $(dataCells[3]).text(Thung_13c);
+    $(dataCells[4]).text(Thung_18c);
 }
 
 
 
-function assignValue() {
-    console.log('Hàm assignValue() được gọi.'); // Thêm dòng này
-    // Phần còn lại của mã của bạn...
+// function assignValue() {
+//     console.log('Hàm assignValue() được gọi.'); // Thêm dòng này
+//     // Phần còn lại của mã của bạn...
 
 
-    const inputValue = document.getElementById('inputValue').value;
+//     const inputValue = document.getElementById('inputValue').value;
 
-    // Gán giá trị cho biến abd
-    Buong_ngaykh = inputValue;
+//     // Gán giá trị cho biến abd
+//     Buong_ngaykh = inputValue;
 
-    // Hiển thị giá trị đã gán (bạn có thể bỏ qua dòng này nếu không muốn hiển thị)
-    console.log('Giá trị đã gán cho biến abd:', Buong_ngaykh);
-}
+//     // Hiển thị giá trị đã gán (bạn có thể bỏ qua dòng này nếu không muốn hiển thị)
+//     console.log('Giá trị đã gán cho biến abd:', Buong_ngaykh);
+// }
 
 
