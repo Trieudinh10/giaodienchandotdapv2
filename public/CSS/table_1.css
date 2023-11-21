@@ -24,11 +24,9 @@ td {
     padding: 8px; /* Khoảng cách giữa nội dung và đường viền của ô */
 }
 
-.data_cell_tb11{
-    text-align: center;
-}
-
-.data_cell_tb12{
+.data_cell_tb11,
+.data_cell_tb12,
+.data_cell_tb13{
     text-align: center;
 }
 

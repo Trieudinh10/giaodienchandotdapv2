@@ -48,7 +48,12 @@ var tt_tag = {
     Tan_ngaycl:[],
     Thung_9cl:[],
     Thung_13cl:[],
-    Thung_18cl:[]
+    Thung_18cl:[],
+    Buong_ngayhs: [],
+    Tan_ngayhs:[],
+    Thung_9hs:[],
+    Thung_13hs:[],
+    Thung_18hs:[]
 };
 
 // console.log('jfn', tt_tag)
@@ -98,6 +103,7 @@ function fn_read_data_scan() {
     fn_sql_nhap();
     caculate_tt();
     caculate_cl();
+    caculate_hs();
     fn_tag();
 }
 
@@ -353,11 +359,12 @@ io.on("connection", function(socket){
 function caculate_cl(){
 
 
-    Buong_ngaycl = tt_tag["Buong_ngaykh"] - tt_tag["Buong_ngaytt"];
-    Tan_ngaycl = tt_tag["Tan_ngaykh"] - tt_tag["Tan_ngaytt"];
-    Thung_9cl = tt_tag["Thung_9kh"] - tt_tag["Thung_9tt"];
-    Thung_13cl = tt_tag["Thung_13kh"] - tt_tag["Thung_13tt"];
-    Thung_18cl = tt_tag["Thung_18kh"] - tt_tag["Thung_18tt"];
+    Buong_ngaycl = Math.abs(tt_tag["Buong_ngaykh"] - tt_tag["Buong_ngaytt"]);
+    Tan_ngaycl = Math.abs(tt_tag["Tan_ngaykh"] - tt_tag["Tan_ngaytt"]);
+    Thung_9cl = Math.abs(tt_tag["Thung_9kh"] - tt_tag["Thung_9tt"]);
+    Thung_13cl = Math.abs(tt_tag["Thung_13kh"] - tt_tag["Thung_13tt"]);
+    Thung_18cl = Math.abs(tt_tag["Thung_18kh"] - tt_tag["Thung_18tt"]);
+    
 
     tt_tag["Buong_ngaycl"] = Buong_ngaycl;
     tt_tag["Tan_ngaycl"] = Tan_ngaycl;
@@ -372,6 +379,28 @@ function caculate_cl(){
     io.sockets.emit("Thung_9cl", tt_tag["Thung_9cl"]);
     io.sockets.emit("Thung_13cl", tt_tag["Thung_13cl"]);
     io.sockets.emit("Thung_18cl", tt_tag["Thung_18cl"]);
+}
+
+function caculate_hs(){
+    Buong_ngayhs = ((tt_tag["Buong_ngaytt"] / tt_tag["Buong_ngaykh"]) * 100).toFixed(2);
+    Tan_ngayhs = ((tt_tag["Tan_ngaytt"] / tt_tag["Tan_ngaykh"]) * 100).toFixed(2);
+    Thung_9hs = ((tt_tag["Thung_9tt"] / tt_tag["Thung_9kh"]) * 100).toFixed(2);
+    Thung_13hs = ((tt_tag["Thung_13tt"] / tt_tag["Thung_13kh"]) * 100).toFixed(2);
+    Thung_18hs = ((tt_tag["Thung_18tt"] / tt_tag["Thung_18kh"]) * 100).toFixed(2);
+
+    tt_tag["Buong_ngayhs"] = Buong_ngayhs;
+    tt_tag["Tan_ngayhs"] = Tan_ngayhs;
+    tt_tag["Thung_9hs"] = Thung_9hs;
+    tt_tag["Thung_13hs"] = Thung_13hs;
+    tt_tag["Thung_18hs"] = Thung_18hs;
+    console.log('Data hieu suat', Buong_ngayhs,Tan_ngayhs,Thung_9hs,Thung_13hs,Thung_18hs);
+
+    io.sockets.emit("Buong_ngayhs", tt_tag["Buong_ngayhs"]);
+    io.sockets.emit("Tan_ngayhs", tt_tag["Tan_ngayhs"]);
+    io.sockets.emit("Thung_9hs", tt_tag["Thung_9hs"]);
+    io.sockets.emit("Thung_13hs", tt_tag["Thung_13hs"]);
+    io.sockets.emit("Thung_18hs", tt_tag["Thung_18hs"]);
+
 }
 
 

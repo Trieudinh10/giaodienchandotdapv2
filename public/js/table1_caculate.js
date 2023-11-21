@@ -118,12 +118,13 @@ var values = {};
 // Tạo một mảng chứa các tag cần đăng ký sự kiện
 var tags = ['Buong_ngaytt', 'Tan_ngaytt', 'Thung_9tt', 'Thung_13tt', 'Thung_18tt',
             'Buong_ngaykh', 'Tan_ngaykh', 'Thung_9kh', 'Thung_13kh', 'Thung_18kh',
-            'Buong_ngaycl', 'Tan_ngaycl', 'Thung_9cl', 'Thung_13cl', 'Thung_18cl'];
+            'Buong_ngaycl', 'Tan_ngaycl', 'Thung_9cl', 'Thung_13cl', 'Thung_18cl',
+            'Buong_ngayhs', 'Tan_ngayhs', 'Thung_9hs', 'Thung_13hs', 'Thung_18hs'];
 
 function fn_iotag(tag){
     socket.on(tag, function(value) {
         values[tag] = value;
-        calculate();
+        calculate_table1();
     })};
 
 
@@ -133,7 +134,7 @@ tags.forEach(function(tag) {
 });
     
 
-function calculate() {
+function calculate_table1() {
     // Gán giá trị cho các biến dựa trên dữ liệu từ 'values'
     Buong_ngayt = values['Buong_ngaytt'];
     Tan_ngayt = values['Tan_ngaytt'];
@@ -162,22 +163,18 @@ function calculate() {
     $(dataCells[2]).text(Thung_9c);
     $(dataCells[3]).text(Thung_13c);
     $(dataCells[4]).text(Thung_18c);
+
+    Buong_ngayh = values['Buong_ngayhs'];
+    Tan_ngayh = values['Tan_ngayhs'];
+    Thung_9h = values['Thung_9hs'];
+    Thung_13h = values['Thung_13hs'];
+    Thung_18h = values['Thung_18hs'];
+
+    var dataCells = $('.data_cell_tb13');
+
+    $(dataCells[0]).text(Buong_ngayh);
+    $(dataCells[1]).text(Tan_ngayh);
+    $(dataCells[2]).text(Thung_9h);
+    $(dataCells[3]).text(Thung_13h);
+    $(dataCells[4]).text(Thung_18h);
 }
-
-
-
-// function assignValue() {
-//     console.log('Hàm assignValue() được gọi.'); // Thêm dòng này
-//     // Phần còn lại của mã của bạn...
-
-
-//     const inputValue = document.getElementById('inputValue').value;
-
-//     // Gán giá trị cho biến abd
-//     Buong_ngaykh = inputValue;
-
-//     // Hiển thị giá trị đã gán (bạn có thể bỏ qua dòng này nếu không muốn hiển thị)
-//     console.log('Giá trị đã gán cho biến abd:', Buong_ngaykh);
-// }
-
-
