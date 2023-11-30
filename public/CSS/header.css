@@ -4,9 +4,10 @@
     left: 0px;
     right: 0px;
     height: 46px;
-    background-image: linear-gradient(90deg, rgba(252, 255, 63, 1), rgba(132, 255, 120, 0.5)); 
+    background-image: linear-gradient(90deg, rgba(252, 255, 63, 1), rgb(0 162 213 / 85%));
     display: flex;
     font-weight: 500;
+    box-shadow: 0 5px 8px -5px #555;
 }
 
 .logo_agri {
@@ -18,7 +19,7 @@
 }
 
 .logo_agri img {
-    max-height: 80%;
+    max-height: 100%;
     width: auto;
     max-width: 100%;
 }

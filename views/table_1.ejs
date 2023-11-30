@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scada Banana Factory</title>
+    <title>Scada Fabrication Machines</title>
     <link rel="shortcut icon" href="/images/mini_logo.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 
@@ -22,74 +22,205 @@
 </head>
 <body class="all">
     <%- include('header.ejs'); -%>
-    <div class="table_1_page">
-        <!-- <video autoplay muted loop id="background-video">
-            <source src="/images/video_background_light.mp4" type="video/mp4">
-          </video> -->
-          <!--Nút nhấn sửa lưu dữ liệu-->
-        <div class="save_edit_btn">
-            <button class="btn_sua_luu" id="btt_Main_Save" onclick="fn_SaveBtt()">LUU</button>
-            <button class="btn_sua_luu" id="btt_Main_Edit" onclick="fn_EditBtt()">SUA</button>
-          </div>
+    <section class="home-section">
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 01</h2>
+            </div>
+            <img src="/public/images/Symbol/may_chan.png" alt="" id="Quat_thoi_bx_hong_ngoai" class="manu_symbol_left">
+            <div class="manu_symbol">
+                <img src="/public/images/Symbol/may_chan.png" alt="" id="Quat_thoi_bx_hong_ngoai" class="manu_symbol_left">
+                <!-- <img id="Quat_thoi_bx_hong_ngoai" class="manu_symbol_left" src="./public/images/Symbol/may_chan.png"> -->
+                <img id = "Quat_thoi_bx_hong_ngoai_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 02</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_thong_gio_1_phan_hoi" class="manu_symbol_left" >
+                <img id = "Quat_thong_gio_1_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 03</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_th1_vgn_bao_bat_dau" class="manu_symbol_left" >
+                <img id = "Quat_th1_vgn_bao_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 04</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_th2_vgn_bao_bat_dau" class="manu_symbol_left" >
+                <img id = "Quat_th2_vgn_bao_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 05</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_th1_du_phong_bao_bat_dau" class="manu_symbol_left" >
+                <img id = "Quat_th1_du_phong_bao_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 06</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_th2_du_phong_bao_bat_dau" class="manu_symbol_left" >
+                <img id = "Quat_th2_du_phong_bao_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 07</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_thong_gio_2_phan_hoi" class="manu_symbol_left" >
+                <img id = "Quat_thong_gio_2_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 08</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_cat_gio_vao_bat_dau" class="manu_symbol_left" >
+                <img id = "Quat_cat_gio_vao_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 09</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Quat_cat_gio_ra_bat_dau" class="manu_symbol_left" >
+                <img id = "Quat_cat_gio_ra_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 10</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Cua_vao_phong_say_mo" class="manu_symbol_left" >
+                <img id = "Cua_vao_phong_say_dong" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">DỪNG</P>
+        </div>
+    </div>
 
-        <table class="table_table1">
-            <tr>
-                <td rowspan="3"> </td>
-                <td colspan="5" style="text-align: center;">BẢNG THEO DÕI KẾ HOẠCH SẢN XUẤT XƯỞNG SẢN XUẤT CHUỐI BP1</td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;">CHUỐI THU HOẠCH</td>
-                <td colspan="3" style="text-align: center;">THÙNG / NGÀY</td>
-            </tr>
-            <tr>
-                <td style="text-align: center;">BUỒNG / NGÀY</td>
-                <td style="text-align: center;">TẤN / NGÀY</td>
-                <td style="text-align: center;">9KG</td>
-                <td style="text-align: center;">13KG</td>
-                <td style="text-align: center;">18KG</td>
-            </tr>
-            <tr>
-                <td>KẾ HOẠCH</td>
-                <td><input disabled="disabled" id="kehoachbn" type="number" style="width: 95%;"></td>
-                <script>fn_IOField_IO("Buong_ngaykh", "kehoachbn", 0);</script>
-
-                <td><input disabled="disabled" id="kehoachtn" type="number" style="width: 95%;"></td>
-                <script>fn_IOField_IO("Tan_ngaykh", "kehoachtn", 0);</script>
-
-                <td><input disabled="disabled" id="kehoach9" type="number" style="width: 95%;"></td>
-                <script>fn_IOField_IO("Thung_9kh", "kehoach9", 0);</script>
-
-                <td><input disabled="disabled" id="kehoach13" type="number" style="width: 95%;"></td>
-                <script>fn_IOField_IO("Thung_13kh", "kehoach13", 0);</script>
-
-                <td><input disabled="disabled" id="kehoach18" type="number" style="width: 95%;"></td>
-                <script>fn_IOField_IO("Thung_18kh", "kehoach18", 0);</script>
-            </tr>
-            <tr>
-                <td>THỰC TẾ</td>
-                <td class="data_cell_tb11"></td>
-                <td class="data_cell_tb11"></td>
-                <td class="data_cell_tb11"></td>
-                <td class="data_cell_tb11"></td>
-                <td class="data_cell_tb11"></td>
-            </tr>
-            <tr>
-                <td>CHÊNH LỆCH</td>
-                <td class="data_cell_tb12"></td>
-                <td class="data_cell_tb12"></td>
-                <td class="data_cell_tb12"></td>
-                <td class="data_cell_tb12"></td>
-                <td class="data_cell_tb12"></td>
-            </tr>
-            <tr>
-                <td>HIỆU SUẤT (%)</td>
-                <td class="data_cell_tb13"></td>
-                <td class="data_cell_tb13"></td>
-                <td class="data_cell_tb13"></td>
-                <td class="data_cell_tb13"></td>
-                <td class="data_cell_tb13"></td>
-            </tr>
-        </table>
-    </div> 
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 11</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Cua_ra_1_phong_say_mo" class="manu_symbol_left" >
+                <img id = "Cua_ra_1_phong_say_dong" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">DỪNG</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 12</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Dau_dot_vgn_bat_dau" class="manu_symbol_left" >
+                <img id = "Dau_dot_vgn_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 13</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Dau_dot_du_phong_1_vgn_bat_dau" class="manu_symbol_left" >
+                <img id = "Dau_dot_du_phong_1_vgn_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 14</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Dau_dot_du_phong_2_vgn_bat_dau" class="manu_symbol_left" >
+                <img id = "Dau_dot_du_phong_2_vgn_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+    <div class="manu_com">
+        <div class="manu_com_1">
+            <div class="manu_tab">
+                <h2 class="manu_text_tab">MÁY 15</h2>
+            </div>
+            <div class="manu_symbol">
+                <img id = "Lo_bx_hong_ngoai_bat_dau" class="manu_symbol_left" >
+                <img id = "Lo_bx_hong_ngoai_loi" class="manu_symbol_right" >
+            </div>
+            <p class="manu_text_left">CHẠY</p>
+            <P class="manu_text_right">LỖI</P>
+        </div>
+    </div>
+</section>
 </body>
 </html>
