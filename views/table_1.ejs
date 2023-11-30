@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/mini_logo.png" type="image/x-icon" />
-
     <title>Scada Banana Factory</title>
+    <link rel="shortcut icon" href="/images/mini_logo.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 
     <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG ////////////// -->
     <script src = "socket.io/socket.io.js"></script>
@@ -15,9 +16,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/css/table_1.css">
-    <link rel="stylesheet" href="/css/fontawesome-free-6.4.2/css/all.min.css">
 
-    
+ 
 
 </head>
 <body class="all">
@@ -26,7 +26,6 @@
         <!-- <video autoplay muted loop id="background-video">
             <source src="/images/video_background_light.mp4" type="video/mp4">
           </video> -->
-
           <!--Nút nhấn sửa lưu dữ liệu-->
         <div class="save_edit_btn">
             <button class="btn_sua_luu" id="btt_Main_Save" onclick="fn_SaveBtt()">LUU</button>
@@ -39,48 +38,31 @@
                 <td colspan="5" style="text-align: center;">BẢNG THEO DÕI KẾ HOẠCH SẢN XUẤT XƯỞNG SẢN XUẤT CHUỐI BP1</td>
             </tr>
             <tr>
-                <td colspan="2">CHUỐI THU HOẠCH</td>
-                <td colspan="3">THÙNG / NGÀY</td>
+                <td colspan="2" style="text-align: center;">CHUỐI THU HOẠCH</td>
+                <td colspan="3" style="text-align: center;">THÙNG / NGÀY</td>
             </tr>
             <tr>
-                <td>BUỒNG / NGÀY</td>
-                <td>TẤN / NGÀY</td>
-                <td>9KG</td>
-                <td>13KG</td>
-                <td>18KG</td>
+                <td style="text-align: center;">BUỒNG / NGÀY</td>
+                <td style="text-align: center;">TẤN / NGÀY</td>
+                <td style="text-align: center;">9KG</td>
+                <td style="text-align: center;">13KG</td>
+                <td style="text-align: center;">18KG</td>
             </tr>
             <tr>
                 <td>KẾ HOẠCH</td>
                 <td><input disabled="disabled" id="kehoachbn" type="number" style="width: 95%;"></td>
-                <!-- <script>
-                    // Kiểm tra xem đã có giá trị được lưu trong localStorage chưa
-                    var storedValue = localStorage.getItem('kehoachbn');
-                    if (storedValue) {
-                        document.getElementById('kehoachbn').value = storedValue;
-                    }
-            
-                    // Lắng nghe sự kiện nhập liệu
-                    document.getElementById('kehoachbn').addEventListener('input', function () {
-                        // Lưu giá trị vào localStorage
-                        localStorage.setItem('kehoachbn', this.value);
-                    });
-                </script> -->
                 <script>fn_IOField_IO("Buong_ngaykh", "kehoachbn", 0);</script>
 
                 <td><input disabled="disabled" id="kehoachtn" type="number" style="width: 95%;"></td>
-
                 <script>fn_IOField_IO("Tan_ngaykh", "kehoachtn", 0);</script>
-                
-                <td><input disabled="disabled" id="kehoach9" type="number" style="width: 95%;"></td>
 
+                <td><input disabled="disabled" id="kehoach9" type="number" style="width: 95%;"></td>
                 <script>fn_IOField_IO("Thung_9kh", "kehoach9", 0);</script>
 
                 <td><input disabled="disabled" id="kehoach13" type="number" style="width: 95%;"></td>
-
                 <script>fn_IOField_IO("Thung_13kh", "kehoach13", 0);</script>
 
                 <td><input disabled="disabled" id="kehoach18" type="number" style="width: 95%;"></td>
-
                 <script>fn_IOField_IO("Thung_18kh", "kehoach18", 0);</script>
             </tr>
             <tr>

@@ -11,21 +11,25 @@
     min-height: 100%;
     z-index: -1;
   }
+
+table {
+    background-color: rgb(197, 112, 0);
+    width: 100%; /* Độ rộng của bảng */
+    border-collapse: collapse; /* Gộp các đường viền của ô */
+}
+
 .table_con::before{
     width: 50%; /* Độ rộng của bảng */
 }
 
-table {
-    width: 100%; /* Độ rộng của bảng */
-    border-collapse: collapse; /* Gộp các đường viền của ô */
-    border-radius: 16PX;
+.table_table2{
+    /* box-shadow: 0 4px 6px 2px #00000020; */
+    box-shadow: 0 4px 6px 2px #00000041;
 }
-
 td {
-    border: 4px solid #09d109; /* Đường viền cho từng ô */
+    border: 0.5px solid #00000050; 
     padding: 8px; /* Khoảng cách giữa nội dung và đường viền của ô */
 }
-
 data_cell_tb21{
     text-align: center;
 }

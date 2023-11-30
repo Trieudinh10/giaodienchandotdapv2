@@ -25,7 +25,3 @@ function fn_DataEdit(button1, button2)
     document.getElementById(button1).style.zIndex='1';  // Hiển nút 1
     document.getElementById(button2).style.zIndex='0';  // Ẩn nút 2
 }
-
-
-
-

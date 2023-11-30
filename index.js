@@ -1,11 +1,18 @@
 var express = require('express');
+var router = express.Router();
 var app = express();
+require('dotenv').config();
+console.log(process.env) // remove this after you've confirmed it is working
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set("views", "./views")
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen(8080)
+const PORT = process.env.PORT || 8080
+
+server.listen(PORT, () => {
+    console.log(`Server conected to port ${PORT}`);
+});
 
 app.get('/', function (req, res) {
     res.render('home');
@@ -25,6 +32,10 @@ app.get('/data', function (req, res) {
 
 app.get('/setting', function (req, res) {
     res.render('setting');
+})
+
+app.get('/login', function (req, res) {
+    res.render('login');
 })
 
 
@@ -284,7 +295,7 @@ function caculate_tt() {
         tt_tag["Thung_9tt"] = Thung_9tt;
         tt_tag["Thung_13tt"] = Thung_13tt;
         tt_tag["Thung_18tt"] = Thung_18tt;
-        console.log('Gia tri thuc te',Buong_ngaytt,Tan_ngaytt,Thung_9tt,Thung_13tt,Thung_18tt)
+        console.log('Data thuc te',Buong_ngaytt,Tan_ngaytt,Thung_9tt,Thung_13tt,Thung_18tt)
 
 
         io.sockets.emit("Buong_ngaytt", tt_tag["Buong_ngaytt"]);
@@ -352,7 +363,7 @@ io.on("connection", function(socket){
         io.sockets.emit("Thung_9kh", tt_tag["Thung_9kh"]);
         io.sockets.emit("Thung_13kh", tt_tag["Thung_13kh"]);
         io.sockets.emit("Thung_18kh", tt_tag["Thung_18kh"]);
-        console.log('Gia tri ke hoach',Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
+        console.log('Data ke hoach',Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
           
 });});
 
@@ -371,7 +382,7 @@ function caculate_cl(){
     tt_tag["Thung_9cl"] = Thung_9cl;
     tt_tag["Thung_13cl"] = Thung_13cl;
     tt_tag["Thung_18cl"] = Thung_18cl;
-    console.log('Gia tri chenh lech',Buong_ngaycl,Tan_ngaycl,Thung_9cl,Thung_13cl,Thung_18cl)
+    console.log('Data chenh lech',Buong_ngaycl,Tan_ngaycl,Thung_9cl,Thung_13cl,Thung_18cl)
 
 
     io.sockets.emit("Buong_ngaycl", tt_tag["Buong_ngaycl"]);
@@ -523,3 +534,8 @@ if (insert_trigger && !old_insert_trigger && !isNaN(insert_trigger))
 }
 old_insert_trigger = insert_trigger;
 }
+
+
+var test = require('./public/js/test.js')
+var ketqua = test(8,9)
+console.log('ket qua', ketqua)
