@@ -26,6 +26,10 @@ app.get('/table_2', function (req, res) {
     res.render('table_2');
 })
 
+app.get('/chart', function (req, res) {
+    res.render('chart');
+})
+
 app.get('/data', function (req, res) {
     res.render('data');
 })
