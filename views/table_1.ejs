@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin-top: 50px; position: fixed;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,11 @@
 </head>
 <body class="all">
     <%- include('header.ejs'); -%>
+    <video autoplay muted loop id="background-video">
+        <source src="/images/video_background_light.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
     <section class="home-section">
     <div class="manu_com">
         <div class="manu_com_1">
@@ -31,9 +36,19 @@
              <div class="manu_symbol">
                 <img  src="/images/may_chan.png" alt="logo" class="manu_symbol_left machines">
                 <P class="manu_text_right">TRẠNG THÁI</P>
+                <input class="iotrangthai" type="text" value="ON/OFF">
+
                 <P class="manu_text_right1">KẾ HOẠCH</P>
+                <input class="iokehoach" type="text" value="00000">
+
                 <P class="manu_text_right2">THỰC TẾ</P>
+                <input class="iothucte" type="text" value="00000">
+
                 <P class="manu_text_right3">HIỆU SUẤT</P>
+                <input class="iohieusuat" type="text" value="100">
+
+                <P class="manu_text_right4">MÃ KHUÔN</P>
+                <input class="iomakhuon" type="text" value="ABCD1234">
             </div>
         </div>
     </div>
@@ -44,9 +59,19 @@
             </div>
             <img  src="/images/may_chan.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -56,9 +81,19 @@
             </div>
             <img  src="/images/may_chan.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -68,9 +103,19 @@
             </div>
             <img  src="/images/may_chan.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -80,9 +125,19 @@
             </div>
             <img  src="/images/may_chan.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -92,9 +147,19 @@
             </div>
             <img  src="/images/may_dot.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -104,9 +169,19 @@
             </div>
             <img  src="/images/may_dot.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -116,9 +191,19 @@
             </div>
             <img  src="/images/may_dot.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -128,9 +213,19 @@
             </div>
             <img  src="/images/may_dot.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -140,9 +235,19 @@
             </div>
             <img  src="/images/may_dot.png" alt="logo" class="manu_symbol_left machines">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
 
@@ -153,9 +258,19 @@
             </div>
             <img  src="/images/may_cat.png" alt="logo" class="manu_symbol_left machines3">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -165,9 +280,19 @@
             </div>
             <img  src="/images/may_cat.png" alt="logo" class="manu_symbol_left machines3">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -177,9 +302,19 @@
             </div>
             <img  src="/images/may_cat.png" alt="logo" class="manu_symbol_left machines3">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -189,9 +324,19 @@
             </div>
             <img  src="/images/may_cat.png" alt="logo" class="manu_symbol_left machines3">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
     <div class="manu_com">
@@ -201,9 +346,19 @@
             </div>
             <img  src="/images/may_cat.png" alt="logo" class="manu_symbol_left machines3">
             <P class="manu_text_right">TRẠNG THÁI</P>
+            <input class="iotrangthai" type="text" value="ON/OFF">
+
             <P class="manu_text_right1">KẾ HOẠCH</P>
+            <input class="iokehoach" type="text" value="00000">
+
             <P class="manu_text_right2">THỰC TẾ</P>
+            <input class="iothucte" type="text" value="00000">
+
             <P class="manu_text_right3">HIỆU SUẤT</P>
+            <input class="iohieusuat" type="text" value="100">
+
+            <P class="manu_text_right4">MÃ KHUÔN</P>
+            <input class="iomakhuon" type="text" value="ABCD1234">
         </div>
     </div>
 </section>

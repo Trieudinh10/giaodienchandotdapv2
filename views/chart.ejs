@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="padding-top: 50px;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +9,17 @@
 
     <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG ////////////// -->
     <script src = "socket.io/socket.io.js"></script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script src="/js/chart.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/chart.css">
 </head>
 <body>
     <%- include('header.ejs'); -%>
 
-    
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <div class="che"></div>
 </body>
 </html>
