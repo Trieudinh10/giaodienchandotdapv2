@@ -2,6 +2,10 @@ const express = require('express');
 var router = express.Router();
 
 
+router.get('/', function (req, res) {
+    res.render('home');
+})
+
 router.get('/table_1', function (req, res) {
     res.render('table_1');
 })
@@ -20,6 +24,10 @@ router.get('/data', function (req, res) {
 
 router.get('/setting', function (req, res) {
     res.render('setting');
+})
+
+router.get('/login', function (req, res) {
+    res.render('login');
 })
 
 module.exports = router

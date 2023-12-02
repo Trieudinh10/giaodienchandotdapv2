@@ -1,8 +1,9 @@
 var express = require('express');
-var router = express.Router();
+// var router = express.Router();
+var router = require('./Routers/Router.js')
 var app = express();
-require('dotenv').config();
-console.log(process.env) // remove this after you've confirmed it is working
+// require('dotenv').config();
+// console.log(process.env) // remove this after you've confirmed it is working
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set("views", "./views")
@@ -14,34 +15,7 @@ server.listen(PORT, () => {
     console.log(`Server conected to port ${PORT}`);
 });
 
-app.get('/', function (req, res) {
-    res.render('home');
-})
-
-app.get('/table_1', function (req, res) {
-    res.render('table_1');
-})
-
-app.get('/table_2', function (req, res) {
-    res.render('table_2');
-})
-
-app.get('/chart', function (req, res) {
-    res.render('chart');
-})
-
-app.get('/data', function (req, res) {
-    res.render('data');
-})
-
-app.get('/setting', function (req, res) {
-    res.render('setting');
-})
-
-app.get('/login', function (req, res) {
-    res.render('login');
-})
-
+app.use('/', router);
 
 //////////////////////////////////////////////////////////////////////////*************************//////////////////////////////////////////////////////////////////////////
 // triger ghi dữ liệu vào SQL
@@ -70,10 +44,6 @@ var tt_tag = {
     Thung_13hs:[],
     Thung_18hs:[]
 };
-
-// console.log('jfn', tt_tag)
-// var plcData = [0, 0, 0, 0, 0]; // Giả sử giá trị mặc định
-
 
 // KHỞI TẠO KẾT NỐI PLC
 var nodes7 = require('nodes7');

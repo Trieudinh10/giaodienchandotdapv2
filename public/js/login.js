@@ -1,5 +1,3 @@
-const express = require('express');
-var router = express.Router();
 function checkLogin() {
     // Lấy giá trị từ trường username và password
     var username = document.getElementById("username").value;
@@ -15,5 +13,3 @@ function checkLogin() {
         alert("Vui lòng nhập đầy đủ thông tin đăng nhập.");
     }
 }
-
-module.exports = checkLogin;
