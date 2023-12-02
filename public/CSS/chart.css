@@ -1,11 +1,21 @@
-.canvasjs-chart-canvas{
+/* .canvasjs-chart-canvas{
     box-shadow: rgb(85, 85, 85) 0px 5px 8px -5px;
-}
+} */
 .che{
     position: relative;
     width: 100px;
     height: 26px;
-    top: -26px;
-    left: 1803px;
-    background-color: white;
+    top: 479px;
+    left: 610px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9999;
+}
+.che1{
+    position: relative;
+    width: 100px;
+    height: 26px;
+    top: 479px;
+    left: -765px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9999;
 }

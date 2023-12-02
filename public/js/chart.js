@@ -1,9 +1,10 @@
 window.onload = function () {
 
-    var chart = new CanvasJS.Chart("chartContainer", {
+    var chart1 = new CanvasJS.Chart("chartContainer1", {
         animationEnabled: true,
         title:{
-            text: "Biểu Đồ Hiệu Suất Các Thiết Bị Chấn Đột Dập"
+            text: "Bieu Do Hieu Suat Cac Thiet Bi Chan Dot Dap",
+            fontSize: 20 // Set the font size for the title
         },	
         axisY: {
             title: "Thời gian hoạt động",
@@ -76,7 +77,7 @@ window.onload = function () {
             ]
         }]
     });
-    chart.render();
+    chart1.render();
     
     function toggleDataSeries(e) {
         if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
@@ -85,7 +86,47 @@ window.onload = function () {
         else {
             e.dataSeries.visible = true;
         }
-        chart.render();
+        chart1.render();
     }
     
+
+
+    /////////////////////////////////////////////////////////////////****///////////////////////////////////////////////////////////////////////
+    var chart2 = new CanvasJS.Chart("chartContainer2", {
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: "Bieu Do Hoat Dong Cua May",
+            fontSize: 20 // Set the font size for the title
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "pie",
+            showInLegend: true,
+            toolTipContent: "{name}: <strong>{y}%</strong>",
+            indexLabel: "{name} - {y}%",
+            dataPoints: [
+                { y: 26, name: "Thời gian lắp khuôn", exploded: true},
+                { y: 20, name: "Lỗi" },
+                { y: 30, name: "Thời gian làm việc" },
+                { y: 24, name: "Thời gian nghỉ" }
+            ]
+        }]
+    });
+    chart2.render();
     }
+    
+    function explodePie (e) {
+        if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+        } else {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+        }
+        e.chart.render();
+    
+    }
+
+

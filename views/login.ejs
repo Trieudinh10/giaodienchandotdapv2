@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scada Fabrication Machines</title>
-    <link rel="shortcut icon" href="/images/mini_logo.png" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Login Example</title>
+    <script src = "socket.io/socket.io.js"></script>
+
 </head>
 <body>
-    <p>chưa có gì cả</p>
+
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="checkLogin()">Login</button>
+    </form>
+        <script src="/js/login.js"></script>
 </body>
 </html>
