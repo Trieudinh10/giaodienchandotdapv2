@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser')
 // var router = express.Router();
 var router = require('./Routers/Router.js')
 var app = express();
@@ -15,6 +16,9 @@ server.listen(PORT, () => {
     console.log(`Server conected to port ${PORT}`);
 });
 
+app.post('/login',(res, req, next) => {
+
+})
 app.use('/', router);
 
 //////////////////////////////////////////////////////////////////////////*************************//////////////////////////////////////////////////////////////////////////
