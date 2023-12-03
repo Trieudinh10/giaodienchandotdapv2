@@ -1,5 +1,5 @@
-const siteRouter = require('./site')
-const table1Router = require('./table1')
+const siteRouter = require('./siterouter')
+const table1Router = require('./table1router')
 function route(app){
 
 
