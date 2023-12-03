@@ -16,8 +16,16 @@ server.listen(PORT, () => {
     console.log(`Server conected to port ${PORT}`);
 });
 
-app.post('/login',(res, req, next) => {
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
+// parse application/json
+app.use(bodyParser.json())
+
+app.post('/login',(res, req, next) => {
+ var username = req.body.username.body
+ var password = req.body.password.body
+ console.log(username, password);
 })
 app.use('/', router);
 
