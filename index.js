@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
-// var router = express.Router();
-var router = require('./Routers/Router.js')
+const router = express.Router();
+const route = require('./routes/index.js')
 var app = express();
 // require('dotenv').config();
 // console.log(process.env) // remove this after you've confirmed it is working
@@ -10,6 +10,9 @@ app.set('view engine', 'ejs');
 app.set("views", "./views")
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
+
+route(app);
+
 const PORT = process.env.PORT || 8080
 
 server.listen(PORT, () => {
@@ -19,7 +22,7 @@ server.listen(PORT, () => {
 app.post('/login',(res, req, next) => {
 
 })
-app.use('/', router);
+
 
 //////////////////////////////////////////////////////////////////////////*************************//////////////////////////////////////////////////////////////////////////
 // triger ghi dữ liệu vào SQL
