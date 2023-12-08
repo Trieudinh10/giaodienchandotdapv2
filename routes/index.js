@@ -1,5 +1,6 @@
 const siteRouter = require('./site')
 const table1Router = require('./table1')
+const chartRouter = require('./chart')
 function route(app){
 
     app.use('/chart',chartRouter )
@@ -10,6 +11,10 @@ function route(app){
 
     app.get('/table_2', function (req, res) {
         res.render('table_2');
+    })
+
+    app.get('/login', function (req, res) {
+        res.render('login');
     })
     
     app.get('/data', function (req, res) {

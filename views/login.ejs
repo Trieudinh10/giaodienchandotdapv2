@@ -12,7 +12,7 @@
 <body>
     <%- include('header.ejs'); -%>
 
-    <form id="loginForm" method="POST">
+    <form id="loginForm" >
         <label class="com_unit_login" for="username">Username:</label>
         <input class="com_unit_login" type="text" id="username" name="username" required>
 
@@ -21,6 +21,6 @@
 
         <button class="com_unit_login" type="button" onclick="checkLogin()">Login</button>
     </form>
-        <!-- <script src="/js/login.js"></script> -->
+        <script src="/js/login.js"></script>
 </body>
 </html>
