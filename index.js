@@ -1,8 +1,9 @@
 var express = require('express');
+var app = express();
 var bodyParser = require('body-parser')
 const router = express.Router();
 const route = require('./routes/index.js')
-var app = express();
+
 // require('dotenv').config();
 // console.log(process.env) // remove this after you've confirmed it is working
 app.use(express.static("public"));
@@ -18,10 +19,6 @@ const PORT = process.env.PORT || 8080
 server.listen(PORT, () => {
     console.log(`Server conected to port ${PORT}`);
 });
-
-app.post('/login',(res, req, next) => {
-
-})
 
 
 //////////////////////////////////////////////////////////////////////////*************************//////////////////////////////////////////////////////////////////////////
@@ -49,7 +46,7 @@ var tt_tag = {
     Tan_ngayhs:[],
     Thung_9hs:[],
     Thung_13hs:[],
-    Thung_18hs:[]
+    Thung_18hs:[],
 };
 
 // KHỞI TẠO KẾT NỐI PLC

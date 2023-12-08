@@ -44,7 +44,7 @@ window.onload = function () {
                 { label: "M08", y: 201.50 },
                 { label: "M09", y: 190.50 },
                 { label: "M10", y: 300.50 },
-                { label: "M11", y: 20.50 },
+                { label: "M11", y: 1000 },
                 { label: "M12", y: 787.50 },
                 { label: "M13", y: 673.50 },
                 { label: "M14", y: 111.50 },
@@ -71,7 +71,7 @@ window.onload = function () {
                 { label: "M10", y: 821.50 },
                 { label: "M11", y: 101.50 },
                 { label: "M12", y: 647.50 },
-                { label: "M13", y: 215.50 },
+                { label: "M13", y: 1000 },
                 { label: "M14", y: 416.50 },
                 { label: "M15", y: 520.50 }
             ]

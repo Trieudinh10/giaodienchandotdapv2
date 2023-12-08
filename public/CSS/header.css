@@ -4,7 +4,8 @@
     left: 0px;
     right: 0px;
     height: 46px;
-    background-image: linear-gradient(90deg, rgba(252, 255, 63, 1), rgb(0 162 213 / 85%));
+    /* background-image: linear-gradient(90deg, rgba(252, 255, 63, 1), rgb(0 162 213 / 85%)); */
+    background-color: palegoldenrod;
     display: flex;
     font-weight: 500;
     box-shadow: 0 5px 8px -5px #555;

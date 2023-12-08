@@ -1,0 +1,15 @@
+#loginForm{
+    display: flex;
+    width: 25%;
+    margin: auto;  padding: 50px;
+    margin-top: 10%;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: burlywood;
+}
+
+.com_unit_login{
+    margin: 8px;
+}
