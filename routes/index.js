@@ -1,12 +1,11 @@
 const siteRouter = require('./site')
 const table1Router = require('./table1')
 const chartRouter = require('./chart')
-const authMiddleware = require('../middlewares/auth.middleware');
 function route(app){
 
     app.use('/chart',chartRouter )
 
-    app.use('/table_1',authMiddleware.loggedin, table1Router )
+    app.use('/table_1', table1Router )
 
     app.use('/',siteRouter )
 
