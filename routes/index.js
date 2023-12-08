@@ -1,6 +1,5 @@
 const siteRouter = require('./site')
 const table1Router = require('./table1')
-const chartRouter = require('./chart')
 function route(app){
 
     app.use('/chart',chartRouter )
