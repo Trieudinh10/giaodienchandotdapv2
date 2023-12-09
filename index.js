@@ -20,6 +20,9 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(cors()); //tránh lỗi
 app.use(cookieParser()); //tạo cookie và gắn cookie
 app.use(express.json()); //phản hồi ở dạng json
+
+
+
 app.use("/v1/auth", authRoute)
 
 
