@@ -4,7 +4,6 @@ const router = express.Router();
 const siteController = require('../app/controllers/siteController')
 
 router.use('/', siteController.index)
-router.use('/login', siteController.index)
 
 
 module.exports = router;

@@ -12,10 +12,6 @@ function route(app){
     app.get('/table_2', function (req, res) {
         res.render('table_2');
     })
-
-    app.get('/login', function (req, res) {
-        res.render('login');
-    })
     
     app.get('/data', function (req, res) {
         res.render('data');
