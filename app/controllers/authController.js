@@ -5,7 +5,7 @@ const authController = {
     registerUser: async(req, res) =>{
         try{
             const salt = await bcrypt.genSalt(10) //await là do bất động bộ nên phải chờ từng bước
-            const hashed = await bcrypt.hash(req.body.password, salt); //tạo hashed để mã hoá pasword
+            const hashed = await bcrypt.hash(req.body.password, salt); //tạo hashed để mã hoá password
             
             //create new uer
             const newUser = await new User({
@@ -24,7 +24,7 @@ const authController = {
     //LOGIN
     loginUser: async(req, res) =>{
         try{
-            const user = await User.fineOne({username: req.body.username});
+            const user = await User.findOne({username: req.body.username});
             if(!user){
                 res.status(404).json("wrong username");
             }
@@ -34,7 +34,7 @@ const authController = {
                 user.password,
             );
             if(!validPassword){
-                res.status(404).jdon("wrong password");
+                res.status(404).json("wrong password");
             }
             if(user && validPassword){
                 res.status(200).json(user)

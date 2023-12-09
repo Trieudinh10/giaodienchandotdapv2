@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const authRoute = require('./routes/auth.js')
+const authRoute = require('./routes/auth')
 
 dotenv.config();
 const app = express();
@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(cors()); //tránh lỗi
 app.use(cookieParser()); //tạo cookie và gắn cookie
 app.use(express.json()); //phản hồi ở dạng json
+app.use("/v1/auth", authRoute)
 
 
 const router = express.Router();
@@ -35,7 +36,6 @@ var io = require("socket.io")(server);
 
 //ROUTES
 route(app);
-app.use("/v1/route", authRoute)
 
 const PORT = process.env.PORT || 8080
 server.listen(PORT, () => {
