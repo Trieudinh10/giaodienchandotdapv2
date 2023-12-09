@@ -1,5 +1,5 @@
-const User = require("../../models/user")
-const bcrypt = require("bcrypt")
+const User = require("../../models/user");
+const bcrypt = require("bcrypt");
 const authController = {
     //REGISTER
     registerUser: async(req, res) =>{
@@ -9,7 +9,7 @@ const authController = {
             
             //create new uer
             const newUser = await new User({
-                username: req.bod.username,
+                username: req.body.username,
                 email: req.body.email,
                 password: hashed,
             })

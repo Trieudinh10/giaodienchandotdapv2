@@ -1,10 +1,11 @@
-const siteRouter = require('./siterouter')
-const table1Router = require('./table1router')
+const siteRouter = require('./site')
+const table1Router = require('./table1')
+const chartRouter = require('./chart')
 function route(app){
 
+    app.use('/chart',chartRouter )
 
-
-    app.use('/table_1',table1Router )
+    app.use('/table_1', table1Router )
 
     app.use('/',siteRouter )
 
