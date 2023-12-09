@@ -1,11 +1,36 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser')
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+// const connectToMongo = async () => {
+//     await mongoose.connect('mongodb+srv://dinhqtrieu10:<password>@cluster0.qx9hruk.mongodb.net/?retryWrites=true&w=majority');
+//     console.log("Connected to MongoDB");
+//   };
+  
+//   connectToMongo();
+
+  mongoose.connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+  });
+
+app.use(cors()); //tránh lỗi
+app.use(cookieParser()); //tạo cookie và gắn cookie
+app.use(express.json()); //phản hồi ở dạng json
+
+
 const router = express.Router();
 const route = require('./routes/index.js')
 
-// require('dotenv').config();
-// console.log(process.env) // remove this after you've confirmed it is working
+
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set("views", "./views")
@@ -15,7 +40,6 @@ var io = require("socket.io")(server);
 route(app);
 
 const PORT = process.env.PORT || 8080
-
 server.listen(PORT, () => {
     console.log(`Server conected to port ${PORT}`);
 });
