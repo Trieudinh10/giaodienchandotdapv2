@@ -1,9 +1,8 @@
 var express = require('express');
-var app = express();
-// var bodyParser = require('body-parser')
+var bodyParser = require('body-parser')
 const router = express.Router();
 const route = require('./routes/index.js')
-
+var app = express();
 // require('dotenv').config();
 // console.log(process.env) // remove this after you've confirmed it is working
 app.use(express.static("public"));
@@ -13,18 +12,27 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 const PORT = process.env.PORT || 8080
 
+
+//ROUTES
 route(app);
+
+const PORT = process.env.PORT || 8080
 
 server.listen(PORT, () => {
     console.log(`Server conected to port ${PORT}`);
 });
 
-// // parse application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
-// // parse application/json
-// app.use(bodyParser.json())
+// parse application/json
+app.use(bodyParser.json())
 
+app.post('/login',(res, req, next) => {
+ var username = req.body.username.body
+ var password = req.body.password.body
+ console.log(username, password);
+})
 
 
 //////////////////////////////////////////////////////////////////////////*************************//////////////////////////////////////////////////////////////////////////
@@ -347,7 +355,7 @@ io.on("connection", function(socket){
         io.sockets.emit("Thung_9kh", tt_tag["Thung_9kh"]);
         io.sockets.emit("Thung_13kh", tt_tag["Thung_13kh"]);
         io.sockets.emit("Thung_18kh", tt_tag["Thung_18kh"]);
-        // console.log('Data ke hoach',Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
+        console.log('Data ke hoach',Buong_ngaykh,Tan_ngaykh,Thung_9kh,Thung_13kh,Thung_18kh)
           
 });});
 

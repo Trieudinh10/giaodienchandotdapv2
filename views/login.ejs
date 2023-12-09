@@ -6,17 +6,20 @@
     <title>Login Example</title>
     <script src = "socket.io/socket.io.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+
 </head>
 <body>
+    <%- include('header.ejs'); -%>
 
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <form id="loginForm" >
+        <label class="com_unit_login" for="username">Username:</label>
+        <input class="com_unit_login" type="text" id="username" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <label class="com_unit_login" for="password">Password:</label>
+        <input class="com_unit_login" type="password" id="password" name="password" required>
 
-        <button type="button" onclick="checkLogin()">Login</button>
+        <button class="com_unit_login" type="button" onclick="checkLogin()">Login</button>
     </form>
         <script src="/js/login.js"></script>
 </body>
