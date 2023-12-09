@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+dotenv.c
 const app = express();
 
 // const connectToMongo = async () => {
