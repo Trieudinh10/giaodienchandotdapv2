@@ -22,6 +22,7 @@ app.use(cookieParser()); //tạo cookie và gắn cookie
 app.use(express.json()); //phản hồi ở dạng json
 
 
+
 app.use("/v1/auth", authRoute)
 
 
@@ -39,7 +40,7 @@ var io = require("socket.io")(server);
 //ROUTES
 route(app);
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT
 server.listen(PORT, () => {
     console.log(`Server conected to port ${PORT}`);
 });
@@ -49,7 +50,3 @@ server.listen(PORT, () => {
 //authentication (so sánh dữ liệu nhập với database)
 
 //authorization
-
-
-
-

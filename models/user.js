@@ -3,21 +3,21 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     username:{
         type: String, //loại kí tự
-        require:true, //bắt buộc phải có username
+        required:true, //bắt buộc phải có username
         minlength: 6, //min
         maxlength: 20,
         unique: true, //là duy nhất ko bị trùng
     },
     email:{
         type: String, 
-        require:true,
+        required:true,
         minlength: 10, 
-        maxlength: 100,
+        maxlength: 50,
         unique: true, 
     },
     password:{
         type: String,
-        require: true,
+        required: true,
         minlength: 8,
     },
     admin:{
@@ -25,7 +25,8 @@ const userSchema = new mongoose.Schema({
         default: false,
 
     },
-},{timestams:true}
+},
+{timestamps:true}
 );
 
 module.exports = mongoose.model("User", userSchema);
