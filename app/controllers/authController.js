@@ -6,7 +6,6 @@ const authController = {
         try{
             const salt = await bcrypt.genSalt(10) //await là do bất động bộ nên phải chờ từng bước
             const hashed = await bcrypt.hash(req.body.password, salt); //tạo hashed để mã hoá password
-            
             //create new uer
             const newUser = await new User({
                 username: req.bod.username,
