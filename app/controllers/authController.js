@@ -4,7 +4,13 @@ const bcrypt = require("bcrypt");
 
 let refreshTokens = [];
 
+
 const authController = {
+        // GET home
+        index (req, res) {
+            res.render('login');
+        },
+
     //REGISTER
     registerUser: async(req, res) =>{
         try{
@@ -33,7 +39,7 @@ const authController = {
                 admin: user.admin 
             },
             process.env.JWT_ACCESS_KEY,
-            { expiresIn: "30s" }
+            { expiresIn: "1000s" }
             );
     },
     //GENERATE REFRESH TOKEN
@@ -51,17 +57,18 @@ const authController = {
 
     //LOGIN
     loginUser: async(req, res) =>{
+
         try{
             const user = await User.findOne({username: req.body.username});
             if(!user){
-                res.status(404).json("wrong username");
+                return res.status(404).json("wrong username");
             }
             const validPassword = await bcrypt.compare(
                 req.body.password,
                 user.password
             );
             if(!validPassword){
-                res.status(404).json("wrong password");
+                return res.status(404).json("wrong password");
             }
             if(user && validPassword){   //dùng jsonwebtoken
                 const accessToken = authController.generateAccessToken(user);
@@ -79,6 +86,7 @@ const authController = {
         }catch(err){
             res.status(500).json(err);
         }
+       
     },
 
     requestRefreshToken:  async(req, res) => {
@@ -92,7 +100,7 @@ const authController = {
                 console.log(err);
             }
             refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
-            // taoj newaccessToken, newrefreshToken
+            // tạo newaccessToken, newrefreshToken
             const newaccessToken = authController.generateAccessToken(user);
             const newrefreshToken = authController.generateRefreshToken(user);
             res.cookie("refreshToken", newrefreshToken, {

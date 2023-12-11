@@ -12,14 +12,15 @@
 <body>
     <%- include('header.ejs'); -%>
 
-    <form id="loginForm" >
+    <form id="loginForm" method="POST" onsubmit="">
         <label class="com_unit_login" for="username">Username:</label>
-        <input class="com_unit_login" type="text" id="username" name="username" required>
+        <input class="com_unit_login" type="text" id="username" name="username" required onchange="">
 
         <label class="com_unit_login" for="password">Password:</label>
         <input class="com_unit_login" type="password" id="password" name="password" required>
 
-        <button class="com_unit_login" type="button" onclick="checkLogin()">Login</button>
+        <button class="com_unit_login" type="button" >Login</button>
+        <button class="com_unit_login" type="button" >Sign in</button>
     </form>
         <script src="/js/login.js"></script>
 </body>

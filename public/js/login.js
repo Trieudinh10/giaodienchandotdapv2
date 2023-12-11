@@ -1,15 +1,20 @@
-function checkLogin() {
-    // Lấy giá trị từ trường username và password
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    // Kiểm tra xem có thông tin đăng nhập hợp lệ hay không (đơn giản là kiểm tra nếu cả hai trường đều được điền)
-    if (username && password) {
-        username = 1234;
-        password = 1234;
-        alert("Đăng nhập thành công!");
-        // Thực hiện các hành động sau khi đăng nhập thành công (chẳng hạn chuyển hướng trang)
-    } else {
-        alert("Vui lòng nhập đầy đủ thông tin đăng nhập.");
-    }
+const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    return ( 
+        <section className="login-container">
+            <div className="login-title"> Log in</div>
+            <form>
+                <label>USERNAME</label>
+                <input type="text" placeholder="Enter your username" />
+                <label>PASSWORD</label>
+                <input type="password" placeholder="Enter your password" />
+                <button type="submit"> Continue </button>
+            </form>
+            <div className="login-register"> Don't have an account yet? </div>
+            <Link className="login-register-link" to="/register">Register one for free </Link>
+        </section>
+     );
 }
+ 
+export default Login;

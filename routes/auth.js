@@ -9,4 +9,6 @@ router.post("/login", authController.loginUser);
 router.post("/refresh", authController.requestRefreshToken);
 router.post("/logout",middlewareController.verifyToken, authController.userLogout); // thêm middleware để đăng xuất khi có đăng nhập
 
+router.use('/', authController.index);
+
 module.exports = router;
