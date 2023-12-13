@@ -4,7 +4,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
+const indexRoutes = require('./routes/index.js');
 
+// .ENV
 dotenv.config();
 
 const app = express();
@@ -20,6 +22,7 @@ app.set("views", "./views");
 
 var server = require("http").Server(app);
 
+//DATABASE AUTHENTICATED
 mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to MongoDB");
@@ -28,10 +31,12 @@ mongoose.connect(process.env.MONGO_URL)
     console.error("Error connecting to MongoDB:", error);
   });
 
+//CONECT SERVER
 const PORT = process.env.PORT;
 server.listen(PORT, () => {
   console.log(`Server connected to port ${PORT}`);
 });
 
-route(app);
+// ROUTES
+app.use(indexRoutes);
 app.use(authRoutes);
