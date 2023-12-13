@@ -8,15 +8,12 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG ////////////// -->
-    <script src = "socket.io/socket.io.js"></script>
-
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" href="/css/fontawesome-free-6.4.2/css/all.min.css">
 </head>
 <body>
     
     <div class="header">
-
         <div class="logo_agri">
             <img src="/images/logo_agri.png" alt="logo" />
           </div>
@@ -36,14 +33,14 @@
                 <li><i class="fa-solid fa-gears fa-xl" style="color: #4d8efe; padding-left: 16px;"></i><a href="/setting">CÀI ĐẶT</a></li>
                 <% if (user) { %>
                 <li><i class="fa-solid fa-arrow-right-from-bracket fa-xl" style="color: #4d8efe; padding-left: 16px;"></i><a href="/logout">Log out</a></li>
-                <li>Welcome, <%= user.email %> !</li>
+                <li style="opacity: 0.5; font-weight: 500px;">Welcome, <%= user.email %>!</li>
                 <% } else { %>
                 <li><i class="fa-solid fa-arrow-right-to-bracket fa-xl" style="color: #4d8efe; padding-left: 16px;"></i><a href="/login">Log in</a></li>
                 <!-- <li><i class="fa-solid fa-gears fa-xl" style="color: #4d8efe; padding-left: 16px;"></i><a href="/signup">Sign up</a></li> -->
                 <% } %>
             </ul>
           </div>
-        <h2 class="title" style="width: 500px;">SCADA THIẾT BỊ XƯỞNG CHẾ TẠO</h2>
+        <h2 class="title" style="width: 400px;">SCADA THIẾT BỊ XƯỞNG CHẾ TẠO</h2>
     </div>
 
 </body>
