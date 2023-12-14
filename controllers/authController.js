@@ -25,7 +25,6 @@ errors[properties.path] = properties.message;
 
 return errors;
 }
-
 // create json web token
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {

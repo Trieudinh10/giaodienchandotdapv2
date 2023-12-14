@@ -14,8 +14,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please enter a password'],
     minlength: [6, 'Minimum password length is 6 characters'],
-  }
-});
+  },
+  admin:{
+    type: Boolean,
+    default: false,
+},
+},
+{timestamps:true}
+);
 
 // fire a function before doc saved to db
 userSchema.pre('save', async function(next) {
