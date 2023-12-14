@@ -12,7 +12,7 @@
     z-index: -1;
   }
 
-  .con_document {
+.con_document {
     display: flex; /* Thêm thuộc tính này để sử dụng flexbox */
     height: 60px;
     width: 90%;
