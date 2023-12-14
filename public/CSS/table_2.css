@@ -12,24 +12,40 @@
     z-index: -1;
   }
 
-table {
-    background-color: rgb(197, 112, 0);
-    width: 100%; /* Độ rộng của bảng */
-    border-collapse: collapse; /* Gộp các đường viền của ô */
+  .con_document {
+    display: flex; /* Thêm thuộc tính này để sử dụng flexbox */
+    height: 60px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 50px;
+    box-shadow: 0 5px 8px -5px #555;
+    background-color: darkkhaki;
+    margin-top: 16px;
 }
 
-.table_con::before{
-    width: 50%; /* Độ rộng của bảng */
+.con_document_1{
+    width: 10%;
+    height: 60px;
+    background-color: #edff00;
+    border-radius: 50px 0 0 50px; /* Điều chỉnh border-radius của .con_document_1 */
 }
 
-.table_table2{
-    /* box-shadow: 0 4px 6px 2px #00000020; */
-    box-shadow: 0 4px 6px 2px #00000041;
+.con_document_2 {
+    width: 20%;
+    height: 60px;
+    background-color: darkseagreen;
 }
-td {
-    border: 0.5px solid #00000050; 
-    padding: 8px; /* Khoảng cách giữa nội dung và đường viền của ô */
-}
-data_cell_tb21{
+p{
     text-align: center;
+    padding-top: 8px;
 }
+
+.btn_document{
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    margin-left: 790px;
+    height: 36px;
+    width: 70px;
+}
+
