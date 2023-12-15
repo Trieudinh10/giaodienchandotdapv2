@@ -17,7 +17,7 @@
     height: 60px;
     width: 90%;
     margin: 0 auto;
-    border-radius: 50px;
+    border-radius: 8px;
     box-shadow: 0 5px 8px -5px #555;
     background-color: darkkhaki;
     margin-top: 16px;
@@ -27,7 +27,7 @@
     width: 10%;
     height: 60px;
     background-color: #edff00;
-    border-radius: 50px 0 0 50px; /* Điều chỉnh border-radius của .con_document_1 */
+    border-radius: 8px 0 0 8px; /* Điều chỉnh border-radius của .con_document_1 */
 }
 
 .con_document_2 {
