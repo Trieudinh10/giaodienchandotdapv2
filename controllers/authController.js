@@ -43,8 +43,6 @@ const createToken = (user) => {
   );
 };
 
-
-
 module.exports.signup_get = (req, res) => {
   res.render('signup');
 }
@@ -73,7 +71,12 @@ module.exports.login_post = async (req, res) => {
   try {
     const user = await User.login(email, password);
     const accessToken = createToken(user);
-    res.cookie('jwt', accessToken, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.cookie('jwt', accessToken, { 
+      httpOnly: true,
+      secure:false,
+      path:"/",
+      sameSite:"strict", 
+      maxAge: maxAge * 1000 });
     res.status(200).json({ user: user, accessToken });
   }
   catch (err) {

@@ -14,7 +14,7 @@ verifyToken: (req, res, next) =>{
         });
     }else{
         res.status(401).json("you are not authenticated");
-    } 
+    }
 },
 verifyTokenAndAdminAuth: (req, res, next) =>{
     middlewareController.verifyToken(req, res, ()=> {

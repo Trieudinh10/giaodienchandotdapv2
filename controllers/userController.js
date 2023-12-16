@@ -1,7 +1,7 @@
 const User = require('../models/User');
 
 const userController = {
-    //get all user
+    //GET ALL USER
     getAllUsers: async(req, res) =>{
         try{
             const user = await User.find();
