@@ -11,8 +11,8 @@ const userRoutes = require('./routes/user.js');
 dotenv.config();
 
 const app = express();
-const router = express.Router();
-const route = require('./routes/index.js');
+// const router = express.Router();
+// const route = require('./routes/index.js');
 
 app.use(cors()); //tránh lỗi
 app.use(express.static("public"));
