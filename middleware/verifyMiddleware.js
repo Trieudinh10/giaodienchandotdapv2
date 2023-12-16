@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const middlewareController = {
 verifyToken: (req, res, next) =>{
-    const token = req.headers.token;
+    const token = req.cookies.jwt;
     if(token){   
         const accessToken = token.split(" ")[1]; //Bearer 123456   
         jwt.verify(accessToken, process.env.JWT_ACCESS_KEY, (err, user) =>{  //verify jsonwebtoken

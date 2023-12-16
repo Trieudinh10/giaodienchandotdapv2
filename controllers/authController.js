@@ -58,7 +58,6 @@ module.exports.signup_post = async (req, res) => {
   try {
     const user = await User.create({ email, password });
     res.status(201).json(user);
-    user.email = 'successfully'
     return user;
   }
   catch (err) {
