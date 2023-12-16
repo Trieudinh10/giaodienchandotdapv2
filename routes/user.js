@@ -7,3 +7,5 @@ router.get("/",  userController.getAllUsers);
 router.delete("/:id", verifyMiddleware.verifyTokenAndAdminAuth, userController.deleteUser);
 
 module.exports = router;
+
+// , verifyMiddleware.verifyTokenAndAdminAuth
