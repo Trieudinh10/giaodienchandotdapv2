@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,217 +9,114 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG ////////////// -->
-    <script src = "socket.io/socket.io.js"></script>
+    <script src="socket.io/socket.io.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/css/table_2.css">
 
-    
+
 
 </head>
+
 <body>
     <%- include('partials/header'); -%>
-    <div class="table_2_page">
-        <!-- <video autoplay muted loop id="background-video">
+        <div class="table_2_page">
+            <!-- <video autoplay muted loop id="background-video">
             <source src="/images/video_background_light.mp4" type="video/mp4">
             Your browser does not support the video tag.
-          </video> -->      
-    </div>
+          </video> -->
+        </div>
 
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 1</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
 
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 2</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
+        <div class="con_device">
+            <select class="select_device" name="" id="">
+                <option value="">Máy 1</option>
+                <option value="">Máy 2</option>
+                <option value="">Máy 3</option>
+                <option value="">Máy 4</option>
+                <option value="">Máy 5</option>
+                <option value="">Máy 6</option>
+                <option value="">Máy 7</option>
+                <option value="">Máy 8</option>
+                <option value="">Máy 9</option>
+                <option value="">Máy 10</option>
 
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 3</p>
+            </select>
+            <button class="btn_document">Sửa</button>
+            <button class="btn_document1">Lưu</button>
         </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
 
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 4</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
+        <table id="customers">
+            <tr>
+                <th style="width: 50px; text-align: center;" >STT</th>
+                <th style="width: 250px;">Time</th>
+                <th style="width: 250px;">Mã khuôn</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td class="stt_center">1</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">2</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">3</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">4</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">5</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">6</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">7</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">8</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">9</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+            <tr>
+                <td class="stt_center">10</td>
+                <td>DD/MM/YYYY - hh:mm:ss</td>
+                <td>Mã khuôn</td>
+                <td>Link bản vẽ ..................................................</td>
+            </tr>
+        </table>
+        <button class="btn_document2">Thêm hàng</button>
+        <button class="btn_document3">Xoá hàng</button>
 
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 5</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
 
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 6</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 7</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 8</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 9</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 10</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 11</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 12</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 13</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 14</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-
-    <div class="con_document">
-        <div class="con_document_1">
-            <p>Máy 15</p>
-        </div>
-        <div class="con_document_2">
-            <p>Mã khuôn</p>
-        </div>
-        <div class="con_document_3">
-            <p>Link bản vẽ ..................................................</p>
-        </div>
-        <button class="btn_document">sửa</button>
-    </div>
-    
-    
 </body>
+
 </html>
