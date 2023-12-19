@@ -34,12 +34,12 @@ const handleErrors = (err) => {
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (user) => {
   return jwt.sign(
-    { 
+    {
       id: user.id,
-      admin: user.admin 
-    }, 
+      admin: user.admin
+    },
     process.env.JWT_ACCESS_KEY,
-     {expiresIn: maxAge}
+    { expiresIn: maxAge }
   );
 };
 
@@ -62,7 +62,6 @@ module.exports.signup_post = async (req, res) => {
     const errors = handleErrors(err);
     res.status(400).send({ errors });
   }
- 
 }
 
 module.exports.login_post = async (req, res) => {
@@ -71,13 +70,14 @@ module.exports.login_post = async (req, res) => {
   try {
     const user = await User.login(email, password);
     const accessToken = createToken(user);
-    res.cookie('jwt', accessToken, { 
+    res.cookie('jwt', accessToken, {
       httpOnly: true,
-      secure:false,
-      path:"/",
-      sameSite:"strict", 
-      maxAge: maxAge * 1000 });
-    res.status(200).json({ user: user, accessToken });
+      secure: false,
+      path: "/",
+      sameSite: "strict",
+      maxAge: maxAge * 1000
+    });
+    res.status(200).json({ user, accessToken });
   }
   catch (err) {
     const errors = handleErrors(err);
