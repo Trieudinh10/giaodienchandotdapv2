@@ -120,7 +120,7 @@ td {
     .manu_text_right3,
     .manu_text_right4{
         position: relative;
-        top: -150px; left: 25px;
+        top: -150px; left: 35px;
         text-align: center;
         margin: 0px;
         font-size: 13px;
@@ -134,10 +134,10 @@ td {
          left: 20px;
     }
     .manu_text_right2{
-         left: 15px;
+         left: 20px;
     }
     .manu_text_right3{
-         left: 20px;
+         left: 39px;
     }
     .manu_text_right4{
         top: -138px;
@@ -151,7 +151,7 @@ td {
     .iomakhuon{
         position: relative;
         top: -170px;
-        left: 100px;
+        left: 120px;
         width: 50px;
         border: none;
         border-radius: 8px;
@@ -159,7 +159,7 @@ td {
     }
     .iomakhuon{
     top: -156px;
-    left: 79px;
+    left: 97px;
     width: 94px;
     }
     
