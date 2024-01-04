@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const path = require('path')
 const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -11,6 +12,7 @@ const userRoutes = require('./routes/user.js');
 dotenv.config();
 
 const app = express();
+app.use(express.static("public"));
 // const router = express.Router();
 // const route = require('./routes/index.js');
 
@@ -20,6 +22,7 @@ app.use(express.json()); //phản hồi ở dạng json
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.set("views", "./views");
+app.set('views', path.resolve(__dirname, 'views'))
 
 var server = require("http").Server(app);
 

@@ -6,38 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include('partials/header'); -%>
-    <h1>User List</h1>
+  <%- include('partials/header'); -%>
+  <%= JSON.stringify(user) %>
 
-    <table>
-      <thead>
-        <tr>
+  <h1>User List</h1>
+
+  <table>
+      <tr>
+          <th>ID</th>
           <th>Email</th>
           <th>Password</th>
           <th>Admin</th>
-        </tr>
-      </thead>
-      <tbody id="userTableBody"></tbody>
-    </table>
+      </tr>
 
-    <script>
-        // Sử dụng JavaScript để fetch dữ liệu từ server và hiển thị trên trang web
-        fetch('/user')
-          .then(response => response.json())
-          .then(users => {
-            const userTableBody = document.getElementById('userTableBody');
-            users.forEach(user => {
-              const row = document.createElement('tr');
-              row.innerHTML = `
-                <td>${user.email}</td>
-                <td>${user.password}</td>
-                <td>${user.admin}</td>
-              `;
-              userTableBody.appendChild(row);
-            });
-          })
-          .catch(error => console.error(error));
-      </script>
-      
+      <% for (let i = 0; i < user.length; i++) { %>
+          <tr>
+              <td><%= user[i]._id %></td>
+              <td><%= user[i].email %></td>
+              <td><%= user[i].password %></td>
+              <td><%= user[i].admin %></td>
+          </tr>
+      <% } %>
+  </table>
 </body>
 </html>
