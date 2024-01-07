@@ -9,3 +9,4 @@ router.delete("/:id", verifyMiddleware.verifyTokenAndAdminAuth, userController.d
 module.exports = router;
 
 // , verifyMiddleware.verifyTokenAndAdminAuth
+// , verifyMiddleware.verifyToken

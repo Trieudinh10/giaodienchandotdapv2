@@ -1,11 +1,12 @@
 window.onload = function () {
 
-    var chart1 = new CanvasJS.Chart("chartContainer1", {
-        animationEnabled: true,
-        title:{
-            text: "Bieu Do Hieu Suat Cac Thiet Bi Chan Dot Dap",
-            fontSize: 20 // Set the font size for the title
-        },	
+var chart1 = new CanvasJS.Chart("chartContainer1", {
+    animationEnabled: true,
+    title: {
+        text: "Biểu Đồ Hiệu Suất Các Thiết Bị Chấn Đột Dập",
+        fontSize: 20, // Set the font size for the title,
+        fontFamily: 'Be Vietnam Pro, sans-serif' // Set the font family for the title
+    },
         axisY: {
             title: "Thời gian hoạt động",
             titleFontColor: "#4F81BC",
@@ -89,15 +90,14 @@ window.onload = function () {
         chart1.render();
     }
     
-
-
     /////////////////////////////////////////////////////////////////****///////////////////////////////////////////////////////////////////////
     var chart2 = new CanvasJS.Chart("chartContainer2", {
         exportEnabled: true,
         animationEnabled: true,
         title:{
-            text: "Bieu Do Hoat Dong Cua May",
-            fontSize: 20 // Set the font size for the title
+            text: "Biểu Đồ Hoạt Động Máy 10",
+            fontSize: 20, // Set the font size for the title
+            fontFamily: 'Be Vietnam Pro, sans-serif'
         },
         legend:{
             cursor: "pointer",
@@ -109,10 +109,10 @@ window.onload = function () {
             toolTipContent: "{name}: <strong>{y}%</strong>",
             indexLabel: "{name} - {y}%",
             dataPoints: [
-                { y: 26, name: "Thời gian lắp khuôn", exploded: true},
-                { y: 20, name: "Lỗi" },
-                { y: 30, name: "Thời gian làm việc" },
-                { y: 24, name: "Thời gian nghỉ" }
+                { y: 26, name: "Thời gian lắp khuôn", exploded: true, color: '#FE6384'},
+                { y: 20, name: "Lỗi", color: '#36A2EB'},
+                { y: 30, name: "Thời gian làm việc", color: '#4BC0C0'},
+                { y: 24, name: "Thời gian nghỉ", color: '#FFCD56'}
             ]
         }]
     });

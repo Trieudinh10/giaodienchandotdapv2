@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <%- include('partials/header'); -%>
+  <%= JSON.stringify(user) %>
+
+  <h1>User List</h1>
+
+  <table>
+      <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Admin</th>
+      </tr>
+
+      <% for (let i = 0; i < user.length; i++) { %>
+          <tr>
+              <td><%= user[i]._id %></td>
+              <td><%= user[i].email %></td>
+              <td><%= user[i].password %></td>
+              <td><%= user[i].admin %></td>
+          </tr>
+      <% } %>
+  </table>
+</body>
+</html>
