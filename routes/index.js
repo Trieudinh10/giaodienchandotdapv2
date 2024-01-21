@@ -10,7 +10,7 @@ router.get('/chart', requireAuth, (req, res) => res.render('chart'));
 router.get('/setting', requireAuth, (req, res) => res.render('setting'));
 router.get('/table_2', requireAuth, (req, res) => res.render('table_2'));
 router.get('/data', requireAuth, (req, res) => res.render('data'));
-router.get('/user', requireAuth, (req, res) => res.render('user'));
+// router.get('/user', requireAuth, (req, res) => res.render('user'));
 
 module.exports = router;
 
