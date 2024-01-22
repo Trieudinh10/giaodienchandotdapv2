@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const path = require('path')
+const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -12,17 +12,17 @@ const userRoutes = require('./routes/user.js');
 dotenv.config();
 
 const app = express();
-app.use(express.static("public"));
 // const router = express.Router();
 // const route = require('./routes/index.js');
 
 app.use(cors()); //tránh lỗi
 app.use(express.static("public"));
 app.use(express.json()); //phản hồi ở dạng json
+app.use(express.urlencoded({ extended: true}));
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.set("views", "./views");
-app.set('views', path.resolve(__dirname, 'views'))
+app.set('views', path.resolve(__dirname, 'views'));
 
 var server = require("http").Server(app);
 
@@ -45,3 +45,10 @@ server.listen(PORT, () => {
 app.use(indexRoutes);
 app.use(authRoutes);
 app.use('/user', userRoutes);
+
+
+// // KHỞI TẠO KẾT NỐI PLC
+// var nodes7 = require('nodes7');  
+// var conn_plc = new nodes7; //PLC1
+// // Tạo địa chỉ kết nối (slot = 2 nếu là 300/400, slot = 1 nếu là 1200/1500)
+// conn_plc.initiateConnection({port: 102, host: '10.14.85.26', rack: 0, slot: 1}, PLC_connected); 

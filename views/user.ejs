@@ -4,29 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
   <%- include('partials/header'); -%>
-  <%= JSON.stringify(user) %>
+
 
   <h1>User List</h1>
 
-  <table>
-      <tr>
-          <th>ID</th>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Admin</th>
-      </tr>
+  <!-- <%= JSON.stringify(list) %> -->
 
-      <% for (let i = 0; i < user.length; i++) { %>
-          <tr>
-              <td><%= user[i]._id %></td>
-              <td><%= user[i].email %></td>
-              <td><%= user[i].password %></td>
-              <td><%= user[i].admin %></td>
-          </tr>
-      <% } %>
-  </table>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Admin</th>
+        <th>Tme1</th>
+        <th>Tme2</th>
+    </tr>
+
+    <% if (list && list.length > 0) { %>
+        <% for (let i = 0; i < list.length; i++) { %>
+            <tr>
+                <td><%= list[i].id %></td>
+                <td><%= list[i].email %></td>
+                <td><%= list[i].password %></td>
+                <td><%= list[i].admin %></td>
+                <td><%= list[i].createdAt %></td>
+                <td><%= list[i].updatedAt %></td>
+            </tr>
+        <% } %>
+    <% } else { %>
+        <tr>
+            <td colspan="6">No user data available</td>
+        </tr>
+    <% } %>
+</table>
+
 </body>
 </html>

@@ -6,7 +6,7 @@ const userController = {
         try{
             const user = await User.find();
             res.status(200).json(user);
-            return res.render('user', user)
+            return res.render('user',{list : user})
         }catch(err){
             res.status(500).json(err);
         }
