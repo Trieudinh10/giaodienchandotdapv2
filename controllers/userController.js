@@ -2,25 +2,31 @@ const User = require('../models/User');
 
 const userController = {
     //GET ALL USER
-<<<<<<< HEAD
-    getAllUsers: async(req, res) =>{
-        try{
-            const user = await User.find();
-            res.status(200).json(user);
-            return res.render('user',{list : user})
-        }catch(err){
-=======
     getAllUsers: async (req, res) => {
         try {
-            const users = await User.find();
-            console.log('All users:', users); // In danh sách người dùng lên terminal
-            res.status(200).json(users);
+            const list = await User.find();
+            // console.log( 'req.params:', list )
+            return list;
+            
+            // Kiểm tra nếu res là undefined, tránh lỗi
+            // if (!res) {
+            //     console.error('Error: Response object is undefined.');
+            //     return;
+            // }
+    
+            // res.status(200).json(user);
+            // return res.render('user', { list: user });
         } catch (err) {
-            console.error('Error:', err);
->>>>>>> 8a8d722dd911d8e15fd18a403698d8b3777d2aec
-            res.status(500).json(err);
+            console.error(err);
+            // Kiểm tra nếu res là undefined, tránh lỗi
+            if (!res) {
+                console.error('Error: Response object is undefined.');
+                return;
+            }
+            return res.status(500).json(err);
         }
     },
+
 
 
 

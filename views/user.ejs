@@ -4,43 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/user.css">
     
 </head>
 <body>
   <%- include('partials/header'); -%>
 
+<div class="pageuser">
+    <h1>User List</h1>
 
-  <h1>User List</h1>
-
-  <!-- <%= JSON.stringify(list) %> -->
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Admin</th>
-        <th>Tme1</th>
-        <th>Tme2</th>
-    </tr>
-
-    <% if (list && list.length > 0) { %>
-        <% for (let i = 0; i < list.length; i++) { %>
-            <tr>
-                <td><%= list[i].id %></td>
-                <td><%= list[i].email %></td>
-                <td><%= list[i].password %></td>
-                <td><%= list[i].admin %></td>
-                <td><%= list[i].createdAt %></td>
-                <td><%= list[i].updatedAt %></td>
-            </tr>
-        <% } %>
-    <% } else { %>
-        <tr>
-            <td colspan="6">No user data available</td>
-        </tr>
-    <% } %>
-</table>
+    <!-- <%= JSON.stringify(listUser) %> -->
+  
+  <table>
+      <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th class="Password_colum">Password</th>
+          <th>Admin</th>
+          <!-- <th>Time1</th>
+          <th>Time2</th> -->
+          <th>Actions</th>
+      </tr>
+  
+      <% if (listUser && listUser.length > 0) { %>
+          <% for (let i = 0; i < listUser.length; i++) { %>
+              <tr>
+                  <td><%= listUser[i].id %></td>
+                  <td><%= listUser[i].email %></td>
+                  <td class="Password_colum"><%= listUser[i].password %></td>
+                  <td><%= listUser[i].admin %></td>
+                  <!-- <td><%= listUser[i].createdAt %></td>
+                  <td><%= listUser[i].updatedAt %></td> -->
+                  <td>
+                    <a style="text-decoration: none;" href="/update/<%= listUser[i].id %>"> Edit</a>
+                    <button>Delete</button>
+                  </td>
+              </tr>
+          <% } %>
+      <% } else { %>
+          <tr>
+              <td colspan="6">No user data available</td>
+          </tr>
+      <% } %>
+  </table>
+</div>
+  
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-
+const {getAllUsers} = require('../controllers/userController')
 const requireAuth = (req, res, next) => {
   const accessToken = req.cookies.jwt;
 
@@ -40,4 +40,8 @@ const checkUser = (req, res, next) => {
     }
   };
 
-module.exports = {requireAuth ,checkUser};
+  const getHomepage = async(req, res) => { 
+    let list = await getAllUsers();
+      return res.render('user', {listUser: list});
+    };
+module.exports = {requireAuth ,checkUser, getHomepage};

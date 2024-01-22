@@ -111,5 +111,5 @@ form .signup-link a:hover{
 #login_button{
   cursor: pointer;
   width: 100%;
-  
+  padding: 5px;
 }
