@@ -27,13 +27,13 @@ app.set('views', path.resolve(__dirname, 'views'));
 var server = require("http").Server(app);
 
 //DATABASE AUTHENTICATED
-mongoose.connect(process.env.MONGO_URL)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+// mongoose.connect(process.env.MONGO_URL)
+//   .then(() => {
+//     console.log("Connected to MongoDB");
+//   })
+//   .catch((error) => {
+//     console.error("Error connecting to MongoDB:", error);
+//   });
 
 //CONECT SERVER
 const PORT = process.env.PORT;
